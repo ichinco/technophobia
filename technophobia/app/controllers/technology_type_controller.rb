@@ -1,0 +1,2 @@
+class TechnologyTypeController < ApplicationController
+end

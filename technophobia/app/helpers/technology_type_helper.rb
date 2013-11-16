@@ -1,0 +1,2 @@
+module TechnologyTypeHelper
+end

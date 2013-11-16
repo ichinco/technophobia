@@ -14,10 +14,14 @@ Technophobia::Application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  resources :technology
-  resources :review
+  resources :technology do
+    resources :review do
+      resources :metareview
+    end
+  end
+
   resources :language
-  resources :metareview
+  resources :technology_type
 
   # Example resource route with options:
   #   resources :products do

@@ -1,6 +1,6 @@
 <h1>Create Review</h1>
 
-<%= form_for :post do |f| %>
+<%= form_for :review, url: posts_path do |f| %>
   <p>
       <%= f.label :version_used %><br>
       <%= f.text_field :version_used %>
@@ -10,12 +10,12 @@
     <%= f.range_field :overall_rating, :min=>1, :max=>5, :class=>"slide"%>
   </p>
   <p>
-    <%= f.label :under_active_development %><br>
-    <%= f.range_field :under_active_development, :min=>1, :max=>5, :class=>"slide"%>
+    <%= f.label :development_status %><br>
+    <%= f.range_field :development_status, :min=>1, :max=>5, :class=>"slide"%>
   </p>
   <p>
-    <%= f.label :community_engagement %><br>
-    <%= f.range_field :community_engagement, :min=>1, :max=>5, :class=>"slide"%>
+    <%= f.label :community %><br>
+    <%= f.range_field :community, :min=>1, :max=>5, :class=>"slide"%>
   </p>
   <p>
     <%= f.label :maturity %><br>

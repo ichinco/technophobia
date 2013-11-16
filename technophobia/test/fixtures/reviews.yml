@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  version_used: 
+  overall_rating: 
+  development_status: 
+  community: 
+  maturity: 
+  what_makes_it_unique: MyText
+  what_is_it_good_at: MyText
+  what_is_it_bad_at: MyText
+  general_comments: MyText
+
+two:
+  version_used: 
+  overall_rating: 
+  development_status: 
+  community: 
+  maturity: 
+  what_makes_it_unique: MyText
+  what_is_it_good_at: MyText
+  what_is_it_bad_at: MyText
+  general_comments: MyText
