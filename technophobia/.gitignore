@@ -14,3 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# intellij project files
+*.ids
+*.iml
+*.ipr
+*.iws
