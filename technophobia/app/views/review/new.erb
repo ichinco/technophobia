@@ -1,0 +1,46 @@
+<h1>Create Review</h1>
+
+<%= form_for :post do |f| %>
+  <p>
+      <%= f.label :version_used %><br>
+      <%= f.text_field :version_used %>
+  </p>
+  <p>
+    <%= f.label :overall_rating %><br>
+    <%= f.range_field :overall_rating, :min=>1, :max=>5, :class=>"slide"%>
+  </p>
+  <p>
+    <%= f.label :under_active_development %><br>
+    <%= f.range_field :under_active_development, :min=>1, :max=>5, :class=>"slide"%>
+  </p>
+  <p>
+    <%= f.label :community_engagement %><br>
+    <%= f.range_field :community_engagement, :min=>1, :max=>5, :class=>"slide"%>
+  </p>
+  <p>
+    <%= f.label :maturity %><br>
+    <%= f.range_field :maturity, :min=>1, :max=>5, :class=>"slide"%>
+  </p>
+
+  <p>
+    <%= f.label :what_makes_it_unique %><br>
+    <%= f.text_area :what_makes_it_unique %>
+  </p>
+  <p>
+    <%= f.label :what_is_it_good_at %><br>
+    <%= f.text_area :what_is_it_good_at %>
+  </p>
+  <p>
+    <%= f.label :what_is_it_bad_at %><br>
+    <%= f.text_area :what_is_it_bad_at %>
+  </p>
+
+  <p>
+    <%= f.label :general_comments %><br>
+    <%= f.text_area :general_comments %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
