@@ -1,8 +1,8 @@
 class CreateTechnologies < ActiveRecord::Migration
   def change
     create_table :technologies do |t|
-      t.references :type, index: true
-      t.String :name
+      t.references :technology_type, index: true
+      t.string :name
       t.text :website
 
       t.timestamps

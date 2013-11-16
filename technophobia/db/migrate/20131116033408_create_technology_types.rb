@@ -1,7 +1,7 @@
 class CreateTechnologyTypes < ActiveRecord::Migration
   def change
     create_table :technology_types do |t|
-      t.String :name
+      t.string :name
 
       t.timestamps
     end
