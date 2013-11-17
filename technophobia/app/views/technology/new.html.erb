@@ -1,0 +1,17 @@
+<h1>Create technology</h1>
+
+<%= form_for :technology, url: post_path do |f| %>
+    <p>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </p>
+
+    <p>
+        <%= f.label :website %>
+        <%= f.text_area :website %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>

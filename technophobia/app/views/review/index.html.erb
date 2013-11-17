@@ -1,0 +1,13 @@
+<h1>Listing posts</h1>
+
+
+<ul>
+  <% @reviews.each do |review| %>
+      <li>
+          <div><%= review.what_makes_it_unique %></div>
+          <div><%= review.what_is_it_good_at %></div>
+          <div><%= review.what_is_it_bad_at %></div>
+          <div><%= review.general_comments %></div>
+      </li>
+  <% end %>
+</ul>

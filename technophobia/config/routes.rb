@@ -15,9 +15,7 @@ Technophobia::Application.routes.draw do
   #   resources :products
 
   resources :technology do
-    resources :review do
-      resources :metareview
-    end
+    resources :review
   end
 
   resources :language
