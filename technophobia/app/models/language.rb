@@ -1,2 +1,3 @@
-class Language < ActiveRecord::Base
+class Language < ActiveRecord::
+  has_many :technologies
 end

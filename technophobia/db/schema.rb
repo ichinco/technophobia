@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131116033408) do
+ActiveRecord::Schema.define(version: 20131117024238) do
 
   create_table "languages", force: true do |t|
     t.string   "name"
@@ -42,9 +42,16 @@ ActiveRecord::Schema.define(version: 20131116033408) do
     t.text     "website"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "language_id"
   end
 
+  add_index "technologies", ["language_id"], name: "index_technologies_on_language_id"
   add_index "technologies", ["technology_type_id"], name: "index_technologies_on_technology_type_id"
+
+  create_table "technology_compatible_with", id: false, force: true do |t|
+    t.integer "technology_a_id", null: false
+    t.integer "technology_b_id", null: false
+  end
 
   create_table "technology_types", force: true do |t|
     t.string   "name"
