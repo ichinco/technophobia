@@ -10,7 +10,7 @@ class ReviewController < ApplicationController
 
   def create
     @technology = Technology.find(params[:technology_id])
-    @review = @technology.create(review_params)
+    @review = @technology.reviews.create(review_params)
     if @review.save
       redirect_to_technology_path @technology
     else

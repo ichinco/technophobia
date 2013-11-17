@@ -16,7 +16,7 @@ class TechnologyController < ApplicationController
 
   private
     def technology_params
-      params.require(:review).permit(:name,
-                                     :website)
+      params.require(:technology).permit(:name,
+                                         :website)
     end
 end

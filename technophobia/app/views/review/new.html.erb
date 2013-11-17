@@ -1,6 +1,6 @@
 <h1>Create Review</h1>
 
-<%= form_for(@technology, @technology.reviews.build)  do |f| %>
+<%= form_for :review, url: technology_review_index_path(@technology) do |f| %>
   <p>
       <%= f.label :version_used %><br>
       <%= f.text_field :version_used %>
