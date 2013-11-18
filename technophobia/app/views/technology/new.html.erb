@@ -1,17 +1,16 @@
 <h1>Create technology</h1>
 
 <%= form_for :technology, url:technology_index_path do |f| %>
-    <p>
+    <fieldset>
         <%= f.label :name %>
         <%= f.text_field :name %>
-    </p>
 
-    <p>
         <%= f.label :website %>
         <%= f.text_area :website %>
-    </p>
+    </fieldset>
 
-    <p>
-      <%= f.submit %>
-    </p>
+    <fieldset>
+        <%= f.submit "submit", :class=>"btn" %>
+    </fieldset>
+
 <% end %>
