@@ -3,6 +3,7 @@ class TechnologyController < ApplicationController
   end
 
   def show
+    @technology = Technology.find(params[:id])
   end
 
   def create

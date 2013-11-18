@@ -1,0 +1,11 @@
+
+<h1><%= @technology[:name] %></h1>
+
+<ul>
+    <% @technology.reviews.each do |review| %>
+        <li>
+            <%= review[:overall_rating] %>
+            <%= review.development_status %>
+        </li>
+    <% end %>
+</ul>
