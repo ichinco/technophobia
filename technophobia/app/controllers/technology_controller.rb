@@ -14,6 +14,11 @@ class TechnologyController < ApplicationController
     end
   end
 
+  def index
+    @technologies = Technology.all
+
+  end
+
   private
     def technology_params
       params.require(:technology).permit(:name,

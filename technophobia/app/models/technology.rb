@@ -1,6 +1,8 @@
 class Technology < ActiveRecord::Base
+  attr_accessor :name, :website
+
   has_one :technology_type
-  has_one :language
+  has_one :built_with, class_name: "Technology"
 
   has_many :reviews
 

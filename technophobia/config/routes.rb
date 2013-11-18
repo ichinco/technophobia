@@ -18,7 +18,6 @@ Technophobia::Application.routes.draw do
     resources :review
   end
 
-  resources :language
   resources :technology_type
 
   # Example resource route with options:

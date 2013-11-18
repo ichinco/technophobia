@@ -1,0 +1,7 @@
+<ul>
+    <% @technologies.each do |technology| %>
+        <li>
+            <%= link_to technology[:name], technology %>
+        </li>
+    <% end %>
+</ul>
