@@ -1,5 +1,7 @@
 class TechnologyController < ApplicationController
   def new
+    @type = TechnologyType.all.map(&:name)
+    @types = @type.to_json
   end
 
   def show
@@ -8,6 +10,19 @@ class TechnologyController < ApplicationController
 
   def create
     @technology = Technology.new(technology_params)
+    @technology_type_name = params[:technology][:technology_type]
+    unless @technology_type_name.blank?
+      @type = TechnologyType.find_by_name(@technology_type_name)
+
+      if @type.blank?
+        @type = TechnologyType.new
+        @type[:name] = params[:technology][:technology_type]
+        @type.save
+      end
+
+      @technology.technology_type_id = @type.id
+    end
+
     if @technology.save
       redirect_to @technology
     else

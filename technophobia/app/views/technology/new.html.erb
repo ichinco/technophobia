@@ -1,12 +1,27 @@
-<h1>Create technology</h1>
+<h1>Add a technology</h1>
+
+<div class="lead">
+Tell us about a new technology!
+</div>
 
 <%= form_for :technology, url:technology_index_path do |f| %>
     <fieldset>
         <%= f.label :name %>
         <%= f.text_field :name %>
-
+    </fieldset>
+    <fieldset>
         <%= f.label :website %>
-        <%= f.text_area :website %>
+        <%= f.text_field :website %>
+    </fieldset>
+        <%= f.label :technology_type %>
+    <%= f.text_field :technology_type, :data =>
+            { :provide => 'typeahead',
+              :source => @type} %>
+    <fieldset>
+        <%= f.label :compatible_with %>
+        <%= f.text_field :compatible_with, :data =>
+                { :provide => 'typeahead',
+                  :source => '["happy", "holly", "hoppy"]'} %>
     </fieldset>
 
     <fieldset>
