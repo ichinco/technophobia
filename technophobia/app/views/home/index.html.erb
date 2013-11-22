@@ -1,5 +1,5 @@
 <%= form_for :search, url:technology_index_path,
-    html: {class: "form-inline"} do |f| %>
+    html: {class: "form-inline"}, method: "GET" do |f| %>
     What
     <%= f.text_field :technology_type, :data =>
             { :provide => 'typeahead',
