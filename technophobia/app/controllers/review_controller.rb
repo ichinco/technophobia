@@ -12,7 +12,7 @@ class ReviewController < ApplicationController
     @technology = Technology.find(params[:technology_id])
     @review = @technology.reviews.create(review_params)
     if @review.save
-      redirect_to_technology_path @technology
+      redirect_to technology_path(@technology)
     else
       render 'new'
     end
