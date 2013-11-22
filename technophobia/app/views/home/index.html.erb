@@ -1,0 +1,14 @@
+<%= form_for :search, url:technology_index_path,
+    html: {class: "form-inline"} do |f| %>
+    What
+    <%= f.text_field :technology_type, :data =>
+            { :provide => 'typeahead',
+              :source => @type},
+            placeholder: "framework"%>
+    should I use for
+    <%= f.text_field :compatible_with, :data =>
+            { :provide => 'typeahead',
+              :source => @technologies},
+            placeholder: "scala" %>
+    <%= f.submit "?", :class=>"btn" %>
+<% end %>

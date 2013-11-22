@@ -18,7 +18,7 @@ Technophobia::Application.routes.draw do
     resources :review
   end
 
-  resources :technology_type
+  resources :home
 
   # Example resource route with options:
   #   resources :products do
