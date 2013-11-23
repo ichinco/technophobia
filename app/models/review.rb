@@ -1,3 +1,4 @@
 class Review < ActiveRecord::Base
-  has_one :technology
+  belongs_to :technology
+  belongs_to :user
 end

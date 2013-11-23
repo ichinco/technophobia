@@ -15,21 +15,21 @@
     <h2>What makes it unique?</h2>
     <ul>
         <% @technology.reviews.each do |review| %>
-            <li><%= review.what_makes_it_unique %></li>
+            <li><%= review.what_makes_it_unique %>(<%= review.user.email %>)</li>
         <% end %>
     </ul>
 
     <h2>What is it good at?</h2>
     <ul>
         <% @technology.reviews.each do |review| %>
-            <li><%= review.what_is_it_good_at %></li>
+            <li><%= review.what_is_it_good_at %>(<%= review.user.email %>)</li>
         <% end %>
     </ul>
 
     <h2>What is it bad at?</h2>
     <ul>
         <% @technology.reviews.each do |review| %>
-            <li><%= review.what_is_it_bad_at %></li>
+            <li><%= review.what_is_it_bad_at %>(<%= review.user.email %>)</li>
         <% end %>
     </ul>
 </div>
