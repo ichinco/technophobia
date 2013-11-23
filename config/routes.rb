@@ -20,6 +20,7 @@ Technophobia::Application.routes.draw do
   end
 
   resources :home
+  resources :tech
 
   # Example resource route with options:
   #   resources :products do

@@ -4,7 +4,7 @@
     <ul>
         <% @technologies.each do |technology| %>
             <li>
-                <%= link_to technology[:name], technology %>
+                <%= link_to technology[:name], tech_url(technology) %>
             </li>
         <% end %>
     </ul>

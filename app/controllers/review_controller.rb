@@ -4,16 +4,11 @@ class ReviewController < ApplicationController
     @technology = Technology.find(params[:technology_id])
   end
 
-  def index
-    @technology = Technology.find(params[:technology_id])
-    @reviews = @technology.reviews
-  end
-
   def create
     @technology = Technology.find(params[:technology_id])
     @review = @technology.reviews.create(review_params)
     if @review.save
-      redirect_to technology_path(@technology)
+      redirect_to tech_path(@technology)
     else
       render 'new'
     end

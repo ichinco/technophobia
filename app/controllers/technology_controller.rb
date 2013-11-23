@@ -1,13 +1,11 @@
 class TechnologyController < ApplicationController
+  before_filter :authenticate_user!
+
   def new
     @type = TechnologyType.all.map(&:name)
     @types = @type.to_json
     @tech = Technology.all.map{|t| t[:name]}
     @technologies = @tech.to_json
-  end
-
-  def show
-    @technology = Technology.find(params[:id])
   end
 
   def create
@@ -26,18 +24,10 @@ class TechnologyController < ApplicationController
     end
 
     if @technology.save
-      redirect_to @technology
+      redirect_to tech_url(@technology)
     else
       render 'new'
     end
-  end
-
-  def index
-    @technology_type_name = params[:search][:technology_type]
-    @technology_type = TechnologyType.find_by_name(@technology_type_name)
-    @technologies = Technology.where(:technology_type_id => @technology_type.id)
-    #@technologies = Technology.all
-
   end
 
   private
