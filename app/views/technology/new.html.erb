@@ -1,3 +1,10 @@
+<% content_for :search_form do %>
+    <% form_for :search, url: tech_index_path,
+                html: {class: "navbar-form pull-left"}, method: "GET" do |f| %>
+        <%= f.text_field :tech, placeholder: "rails"%>
+        <%= f.submit "search", :class=>"btn" %>
+    <% end %>
+<% end %>
 
 <div class="container">
     <h1>Add a technology</h1>
