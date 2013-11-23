@@ -1,8 +1,13 @@
-<%= link_to "add new", new_technology_path, class: "btn" %>
-<ul>
-    <% @technologies.each do |technology| %>
-        <li>
-            <%= link_to technology[:name], technology %>
-        </li>
-    <% end %>
-</ul>
+
+<div class="container">
+    <h1>What do people think of</h1>
+    <ul>
+        <% @technologies.each do |technology| %>
+            <li>
+                <%= link_to technology[:name], technology %>
+            </li>
+        <% end %>
+    </ul>
+
+    <p>Something missing? <%= link_to "add new", new_technology_path, class: "btn" %></p>
+</div>

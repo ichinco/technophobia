@@ -1,27 +1,28 @@
+<div class="container">
+    <h1><%= @technology[:name] %></h1>
+    <%= link_to "write review",
+                new_technology_review_path(@technology),
+                class: "btn" %>
 
-<h1><%= @technology[:name] %></h1>
-<%= link_to "write review",
-              new_technology_review_path(@technology),
-              class: "btn" %>
+    <h2>What makes it unique?</h2>
+    <ul>
+        <% @technology.reviews.each do |review| %>
+            <li><%= review.what_makes_it_unique %></li>
+        <% end %>
+    </ul>
 
-<h2>What makes it unique?</h2>
-<ul>
-    <% @technology.reviews.each do |review| %>
-        <li><%= review.what_makes_it_unique %></li>
-    <% end %>
-</ul>
+    <h2>What is it good at?</h2>
+    <ul>
+        <% @technology.reviews.each do |review| %>
+            <li><%= review.what_is_it_good_at %></li>
+        <% end %>
+    </ul>
 
-<h2>What is it good at?</h2>
-<ul>
-    <% @technology.reviews.each do |review| %>
-        <li><%= review.what_is_it_good_at %></li>
-    <% end %>
-</ul>
-
-<h2>What is it bad at?</h2>
-<ul>
-    <% @technology.reviews.each do |review| %>
-        <li><%= review.what_is_it_bad_at %></li>
-    <% end %>
-</ul>
+    <h2>What is it bad at?</h2>
+    <ul>
+        <% @technology.reviews.each do |review| %>
+            <li><%= review.what_is_it_bad_at %></li>
+        <% end %>
+    </ul>
+</div>
 

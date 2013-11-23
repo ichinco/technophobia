@@ -20,7 +20,7 @@
             <%= notice %>
         </div>
     <% end %>
-    <div>
+    <div class="navbar navbar-static-top">
         <% if user_signed_in? %>
             <%= link_to 'Settings', edit_user_registration_url %>
             <%= link_to 'Sign out', destroy_user_session_url, :method => :delete %>
