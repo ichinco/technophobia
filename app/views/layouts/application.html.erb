@@ -8,6 +8,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <div class="navbar navbar-static-top">
+        <div class="navbar-inner">
+            <a class="brand" href="#">technophobia</a>
+            <ul class="nav">
+                <% if user_signed_in? %>
+                    <li><%= link_to 'Settings', edit_user_registration_url %></li>
+                    <li><%= link_to 'Sign out', destroy_user_session_url, :method => :delete %></li>
+                <% else %>
+                    <li><%= link_to 'Sign in', new_user_session_url %></li>
+                    <li><%= link_to 'Sign up', new_user_registration_url %></li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
     <% if alert %>
         <div class="alert alert-error">
             <button type="button" class="close" data-dismiss="alert">×</button>
@@ -20,16 +34,6 @@
             <%= notice %>
         </div>
     <% end %>
-    <div class="navbar navbar-static-top">
-        <% if user_signed_in? %>
-            <%= link_to 'Settings', edit_user_registration_url %>
-            <%= link_to 'Sign out', destroy_user_session_url, :method => :delete %>
-        <% else %>
-            <%= link_to 'Sign in', new_user_session_url %>
-            <%= link_to 'Sign up', new_user_registration_url %>
-        <% end %>
-
-    </div>
 
 <%= yield %>
 
