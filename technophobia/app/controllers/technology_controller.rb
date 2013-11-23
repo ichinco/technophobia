@@ -33,7 +33,10 @@ class TechnologyController < ApplicationController
   end
 
   def index
-    @technologies = Technology.all
+    @technology_type_name = params[:search][:technology_type]
+    @technology_type = TechnologyType.find_by_name(@technology_type_name)
+    @technologies = Technology.where(:technology_type_id => @technology_type.id)
+    #@technologies = Technology.all
 
   end
 
