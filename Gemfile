@@ -52,3 +52,5 @@ gem 'font-awesome-rails'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'devise'

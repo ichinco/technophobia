@@ -1,4 +1,5 @@
 class ReviewController < ApplicationController
+  before_filter :authenticate_user!
   def new
     @technology = Technology.find(params[:technology_id])
   end
