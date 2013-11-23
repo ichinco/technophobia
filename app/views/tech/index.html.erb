@@ -10,8 +10,8 @@
     <h1>What do people think of</h1>
     <ul>
         <% @technologies.each do |technology| %>
-            <li>
-                <%= link_to technology[:name], tech_url(technology) %>
+            <li class="row">
+                <%= link_to technology[:name], tech_url(technology), class: "span12" %>
             </li>
         <% end %>
     </ul>
