@@ -12,7 +12,16 @@
                 new_technology_review_path(@technology),
                 class: "btn" %>
 
-
+    <dl class="dl-horizontal">
+        <dt>Overall rating</dt>
+        <dd><%= @rating_summary.overall %></dd>
+        <dt>Development</dt>
+        <dd><%= @rating_summary.development %></dd>
+        <dt>Community</dt>
+        <dd><%= @rating_summary.community %></dd>
+        <dt>Maturity</dt>
+        <dd><%= @rating_summary.maturity %></dd>
+    </dl>
 
     <h2>In General</h2>
     <ul class="unstyled">
