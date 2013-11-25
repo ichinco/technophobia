@@ -12,24 +12,41 @@
                 new_technology_review_path(@technology),
                 class: "btn" %>
 
-    <h2>What makes it unique?</h2>
-    <ul>
+
+
+    <h2>In General</h2>
+    <ul class="unstyled">
         <% @technology.reviews.each do |review| %>
-            <li><%= review.what_makes_it_unique %>(<%= review.user.email %>)</li>
+            <% unless review.general_comments.blank? %>
+                <li><%= review.general_comments %>(<%= review.user.email %>)</li>
+            <% end %>
+        <% end %>
+    </ul>
+
+    <h2>What makes it unique?</h2>
+    <ul class="unstyled">
+        <% @technology.reviews.each do |review| %>
+            <% unless review.what_makes_it_unique.blank? %>
+                <li><%= review.what_makes_it_unique %>(<%= review.user.email %>)</li>
+            <% end %>
         <% end %>
     </ul>
 
     <h2>What is it good at?</h2>
-    <ul>
+    <ul class="unstyled">
         <% @technology.reviews.each do |review| %>
-            <li><%= review.what_is_it_good_at %>(<%= review.user.email %>)</li>
+            <% unless review.what_is_it_good_at.blank? %>
+                <li><%= review.what_is_it_good_at %>(<%= review.user.email %>)</li>
+            <% end %>
         <% end %>
     </ul>
 
     <h2>What is it bad at?</h2>
-    <ul>
+    <ul class="unstyled">
         <% @technology.reviews.each do |review| %>
-            <li><%= review.what_is_it_bad_at %>(<%= review.user.email %>)</li>
+            <% unless review.what_is_it_bad_at.blank? %>
+                <li><%= review.what_is_it_bad_at %>(<%= review.user.email %>)</li>
+            <% end %>
         <% end %>
     </ul>
 </div>

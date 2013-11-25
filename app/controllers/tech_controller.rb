@@ -1,6 +1,9 @@
 class TechController < ApplicationController
+  include TechHelper
+
   def show
     @technology = Technology.find(params[:id])
+    @rating_summary = construct_tech_overview(@technology)
   end
 
   def index
