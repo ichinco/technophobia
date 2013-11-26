@@ -31,7 +31,9 @@
             <%= f.label :compatible_with %>
             <%= f.text_field :compatible_with, :data =>
                     { :provide => 'typeahead',
-                      :source => @technologies} %>
+                      :source => @technologies,
+                      :mode => 'multiple',
+                      :items => 10} %>
         </fieldset>
 
         <fieldset>
