@@ -10,44 +10,44 @@
     <h1>Create Review</h1>
 
     <%= form_for :review, url: technology_review_index_path(@technology) do |f| %>
-        <fieldset>
+        <fieldset class="row-fluid">
             <%= f.label :version_used %>
             <%= f.text_field :version_used %>
         </fieldset>
-        <fieldset>
+        <fieldset class="row-fluid">
             <%= f.label :overall_rating %>
             <%= f.range_field :overall_rating, :min=>1, :max=>5, :class=>"slide"%>
         </fieldset>
-        <fieldset>
+        <fieldset class="row-fluid">
             <%= f.label :development_status %>
             <%= f.range_field :development_status, :min=>1, :max=>5, :class=>"slide"%>
         </fieldset>
-        <fieldset>
+        <fieldset class="row-fluid">
             <%= f.label :community %>
             <%= f.range_field :community, :min=>1, :max=>5, :class=>"slide"%>
         </fieldset>
-        <fieldset>
+        <fieldset class="row-fluid">
             <%= f.label :maturity %>
             <%= f.range_field :maturity, :min=>1, :max=>5, :class=>"slide"%>
         </fieldset>
-        <fieldset>
+        <fieldset class="row-fluid">
             <%= f.label :what_makes_it_unique %>
             <%= f.text_area :what_makes_it_unique, :rows=>4, :class=>"span12" %>
         </fieldset>
-        <fieldset>
+        <fieldset class="row-fluid">
             <%= f.label :what_is_it_good_at %>
             <%= f.text_area :what_is_it_good_at, :rows=>4, :class=>"span12" %>
         </fieldset>
-        <fieldset>
+        <fieldset class="row-fluid">
             <%= f.label :what_is_it_bad_at %>
             <%= f.text_area :what_is_it_bad_at, :rows=>4, :class=>"span12" %>
         </fieldset>
-        <fieldset>
+        <fieldset class="row-fluid">
             <%= f.label :general_comments %>
             <%= f.text_area :general_comments, :rows=>4, :class=>"span12" %>
         </fieldset>
 
-        <fieldset>
+        <fieldset class="row-fluid">
             <%= f.submit "submit", :class=>"btn" %>
 
         </fieldset>
