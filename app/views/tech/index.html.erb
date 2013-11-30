@@ -6,11 +6,11 @@
     <% end %>
 <% end %>
 
-<div class="container">
+<div class="container-fluid">
     <h1>Find out what people think of:</h1>
     <ul class="unstyled">
         <% @technologies.each do |technology| %>
-            <li class="row">
+            <li class="row-fluid">
                 <h2><%= link_to technology[:name], tech_url(technology), class: "span12" %></h2>
             </li>
         <% end %>

@@ -3,33 +3,34 @@
 <head>
   <title>Technophobia</title>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-static-top">
+        <!--navbar-fixed-top-->
         <div class="navbar-inner">
-            <a class="brand" href="/">technophobia</a>
-            <ul class="nav pull-left">
-                <li><%= link_to 'Popular' %></li>
-                <li><%= link_to 'Trending' %></li>
-            </ul>
+            <div class="container-fluid">
 
-            <ul class="nav pull-right">
-                <li>
-                    <%= yield :search_form %>
-                </li>
-                <% if user_signed_in? %>
-                    <li><%= link_to 'Settings', edit_user_registration_url%></li>
-                    <li class="divider-vertical"></li>
-                    <li><%= link_to 'Sign out', destroy_user_session_url, :method => :delete %></li>
-                <% else %>
-                    <li><%= link_to 'Sign in', new_user_session_url %></li>
-                    <li class="divider-vertical"></li>
-                    <li><%= link_to 'Sign up', new_user_registration_url %></li>
-                <% end %>
-            </ul>
+                <a class="brand" href="/">technophobia</a>
+
+                <ul class="nav pull-right">
+                    <li>
+                        <%= yield :search_form %>
+                    </li>
+                    <% if user_signed_in? %>
+                        <li><%= link_to 'Settings', edit_user_registration_url%></li>
+                        <li class="divider-vertical"></li>
+                        <li><%= link_to 'Sign out', destroy_user_session_url, :method => :delete %></li>
+                    <% else %>
+                        <li><%= link_to 'Sign in', new_user_session_url %></li>
+                        <li class="divider-vertical"></li>
+                        <li><%= link_to 'Sign up', new_user_registration_url %></li>
+                    <% end %>
+                </ul>
+            </div>
         </div>
     </div>
     <% if alert %>

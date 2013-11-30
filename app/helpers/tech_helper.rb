@@ -16,10 +16,10 @@ module TechHelper
 
     @reviews_count = technology.reviews.size
     @review_summary = TechnologyRatingSummary.new()
-    @review_summary.overall = @overall_sum / @reviews_count
-    @review_summary.development = @development_sum / @reviews_count
-    @review_summary.community = @community_sum / @reviews_count
-    @review_summary.maturity = @maturity_sum / @reviews_count
+    @review_summary.overall = @reviews_count > 0 ? @overall_sum / @reviews_count : 0
+    @review_summary.development = @reviews_count > 0 ? @development_sum / @reviews_count : 0
+    @review_summary.community = @reviews_count > 0 ? @community_sum / @reviews_count : 0
+    @review_summary.maturity = @reviews_count > 0 ? @maturity_sum / @reviews_count : 0
 
     @review_summary
   end
