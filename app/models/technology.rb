@@ -1,6 +1,6 @@
 class Technology < ActiveRecord::Base
 
-  has_one :technology_type
+  belongs_to :technology_type
   #has_one :built_with, class_name: "Technology"
 
   has_many :reviews

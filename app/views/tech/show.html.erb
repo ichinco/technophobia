@@ -6,11 +6,29 @@
     <% end %>
 <% end %>
 
+<ul class="breadcrumb">
+  <li><a href="/">Home</a> <span class="divider">/</span></li>
+  <li>
+      <%= link_to @technology.technology_type.name,
+          tech_index_path(:search => {:technology_type => @technology.technology_type.name}) %>
+      <span class="divider">/</span>
+  </li>
+  <li class="active"><%= @technology.name %></li>
+</ul>
+
 <div class="container-fluid">
     <h1><%= @technology[:name] %></h1>
     <%= link_to "write review",
                 new_technology_review_path(@technology),
                 class: "btn" %>
+
+    <div class="container-fluid">
+        <h3>Alternatives</h3>
+    </div>
+
+    <div class="container-fluid">
+        <h3>In the ecosystem</h3>
+    </div>
 
     <dl class="dl-horizontal">
         <dt>Overall rating</dt>
