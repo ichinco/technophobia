@@ -4,6 +4,7 @@ class Technology < ActiveRecord::Base
   #has_one :built_with, class_name: "Technology"
 
   has_many :reviews
+  has_many :technology_property_values
 
   has_and_belongs_to_many(:compatible_with,
     :class_name => "Technology",
@@ -16,4 +17,6 @@ class Technology < ActiveRecord::Base
     :join_table => "technology_compatible_with",
     :foreign_key => "technology_b_id",
     :association_foreign_key => "technology_a_id")
+
+  accepts_nested_attributes_for :technology_property_values
 end

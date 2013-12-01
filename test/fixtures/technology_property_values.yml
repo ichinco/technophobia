@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  technology_property: 
+  value: MyText
+  technology: 
+
+two:
+  technology_property: 
+  value: MyText
+  technology: 

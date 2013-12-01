@@ -27,14 +27,10 @@
                     { :provide => 'typeahead',
                       :source => @type} %>
         </fieldset>
-        <fieldset class="row-fluid">
-            <%= f.label :compatible_with %>
-            <%= f.text_field :compatible_with, :data =>
-                    { :provide => 'typeahead',
-                      :source => @technologies,
-                      :mode => 'multiple',
-                      :items => 10} %>
-        </fieldset>
+
+        <div id="type-specific">
+
+        </div>
 
         <fieldset class="row-fluid">
             <%= f.submit "submit", :class=>"btn" %>

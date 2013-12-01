@@ -22,6 +22,10 @@ Technophobia::Application.routes.draw do
   resources :home
   resources :tech
 
+  resources :technology_type do
+    resources :technology_property
+  end
+
   # Example resource route with options:
   #   resources :products do
   #     member do

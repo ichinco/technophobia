@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131123182450) do
+ActiveRecord::Schema.define(version: 20131130234800) do
 
   create_table "languages", force: true do |t|
     t.string   "name"
@@ -52,6 +52,27 @@ ActiveRecord::Schema.define(version: 20131123182450) do
     t.integer "technology_a_id", null: false
     t.integer "technology_b_id", null: false
   end
+
+  create_table "technology_properties", force: true do |t|
+    t.integer  "technology_type_id"
+    t.string   "display_name"
+    t.string   "property_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "technology_properties", ["technology_type_id"], name: "index_technology_properties_on_technology_type_id"
+
+  create_table "technology_property_values", force: true do |t|
+    t.integer  "technology_property_id"
+    t.text     "value"
+    t.integer  "technology_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "technology_property_values", ["technology_id"], name: "index_technology_property_values_on_technology_id"
+  add_index "technology_property_values", ["technology_property_id"], name: "index_technology_property_values_on_technology_property_id"
 
   create_table "technology_types", force: true do |t|
     t.string   "name"
