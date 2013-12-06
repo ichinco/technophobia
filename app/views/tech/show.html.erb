@@ -16,41 +16,41 @@
   <li class="active"><%= @technology.name %></li>
 </ul>
 
+<div class="row-fluid">
+
+    <h1><%= @technology[:name] %></h1>
+    <%= link_to "write review",
+                new_technology_review_path(@technology),
+                class: "btn" %>
+</div>
+<div class="span3 sidebar">
+    <dl class="dl-horizontal">
+        <dt>Overall rating</dt>
+        <dd><%= @rating_summary.overall %></dd>
+        <dt>Development</dt>
+        <dd><%= @rating_summary.development %></dd>
+        <dt>Community</dt>
+        <dd><%= @rating_summary.community %></dd>
+        <dt>Maturity</dt>
+        <dd><%= @rating_summary.maturity %></dd>
+    </dl>
+
+    <h3>Alternatives</h3>
+    <div>
+        <% @alternatives.each do |alternative| %>
+            <%= link_to alternative.name, tech_url(alternative) %>
+        <% end %>
+    </div>
+
+    <h3>In the ecosystem</h3>
+
+    <% @property_values.each do |property_value| %>
+        <h3><%= property_value.property.display_name %></h3>
+    <% end %>
+</div>
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span2 sidebar">
-            <h3>Alternatives</h3>
-            <div>
-                <% @alternatives.each do |alternative| %>
-                    <%= link_to alternative.name, tech_url(alternative) %>
-                <% end %>
-            </div>
-
-            <h3>In the ecosystem</h3>
-
-            <% @property_values.each do |property_value| %>
-                <h3><%= property_value.property.display_name %></h3>
-            <% end %>
-        </div>
-        <div class="span10">
-
-            <h1><%= @technology[:name] %></h1>
-            <%= link_to "write review",
-                        new_technology_review_path(@technology),
-                        class: "btn" %>
-
-
-
-            <dl class="dl-horizontal">
-                <dt>Overall rating</dt>
-                <dd><%= @rating_summary.overall %></dd>
-                <dt>Development</dt>
-                <dd><%= @rating_summary.development %></dd>
-                <dt>Community</dt>
-                <dd><%= @rating_summary.community %></dd>
-                <dt>Maturity</dt>
-                <dd><%= @rating_summary.maturity %></dd>
-            </dl>
+        <div class="span9">
 
             <h2>In General</h2>
             <ul class="unstyled">
