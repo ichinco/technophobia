@@ -6,6 +6,11 @@
     <% end %>
 <% end %>
 
+<ul class="breadcrumb">
+  <li><a href="/">Home</a> <span class="divider">/</span></li>
+  <li class="active"><%= @type.name %></li>
+</ul>
+
 <div class="container-fluid">
     <h1>Add a <%= @type.name %></h1>
     <div class="lead">
