@@ -3,6 +3,8 @@ class TechController < ApplicationController
 
   def show
     @technology = Technology.find(params[:id])
+    @alternatives = Technology.where(:technology_type_id => @technology.technology_type_id)
+    @alternatives = @alternatives.select { |alternative| alternative.id != @technology.id}
     @rating_summary = construct_tech_overview(@technology)
   end
 

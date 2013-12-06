@@ -17,64 +17,73 @@
 </ul>
 
 <div class="container-fluid">
-    <h1><%= @technology[:name] %></h1>
-    <%= link_to "write review",
-                new_technology_review_path(@technology),
-                class: "btn" %>
+    <div class="row-fluid">
+        <div class="span2">
+            <h3>Alternatives</h3>
+            <div>
+                <% @alternatives.each do |alternative| %>
+                    <%= link_to alternative.name, tech_url(alternative) %>
+                <% end %>
+            </div>
 
-    <div class="container-fluid">
-        <h3>Alternatives</h3>
+            <h3>In the ecosystem</h3>
+        </div>
+        <div class="span10">
+
+            <h1><%= @technology[:name] %></h1>
+            <%= link_to "write review",
+                        new_technology_review_path(@technology),
+                        class: "btn" %>
+
+
+
+            <dl class="dl-horizontal">
+                <dt>Overall rating</dt>
+                <dd><%= @rating_summary.overall %></dd>
+                <dt>Development</dt>
+                <dd><%= @rating_summary.development %></dd>
+                <dt>Community</dt>
+                <dd><%= @rating_summary.community %></dd>
+                <dt>Maturity</dt>
+                <dd><%= @rating_summary.maturity %></dd>
+            </dl>
+
+            <h2>In General</h2>
+            <ul class="unstyled">
+                <% @technology.reviews.each do |review| %>
+                    <% unless review.general_comments.blank? %>
+                        <li><%= review.general_comments %>(<%= review.user.email %>)</li>
+                    <% end %>
+                <% end %>
+            </ul>
+
+            <h2>What makes it unique?</h2>
+            <ul class="unstyled">
+                <% @technology.reviews.each do |review| %>
+                    <% unless review.what_makes_it_unique.blank? %>
+                        <li><%= review.what_makes_it_unique %>(<%= review.user.email %>)</li>
+                    <% end %>
+                <% end %>
+            </ul>
+
+            <h2>What is it good at?</h2>
+            <ul class="unstyled">
+                <% @technology.reviews.each do |review| %>
+                    <% unless review.what_is_it_good_at.blank? %>
+                        <li><%= review.what_is_it_good_at %>(<%= review.user.email %>)</li>
+                    <% end %>
+                <% end %>
+            </ul>
+
+            <h2>What is it bad at?</h2>
+            <ul class="unstyled">
+                <% @technology.reviews.each do |review| %>
+                    <% unless review.what_is_it_bad_at.blank? %>
+                        <li><%= review.what_is_it_bad_at %>(<%= review.user.email %>)</li>
+                    <% end %>
+                <% end %>
+            </ul>
+        </div>
     </div>
-
-    <div class="container-fluid">
-        <h3>In the ecosystem</h3>
-    </div>
-
-    <dl class="dl-horizontal">
-        <dt>Overall rating</dt>
-        <dd><%= @rating_summary.overall %></dd>
-        <dt>Development</dt>
-        <dd><%= @rating_summary.development %></dd>
-        <dt>Community</dt>
-        <dd><%= @rating_summary.community %></dd>
-        <dt>Maturity</dt>
-        <dd><%= @rating_summary.maturity %></dd>
-    </dl>
-
-    <h2>In General</h2>
-    <ul class="unstyled">
-        <% @technology.reviews.each do |review| %>
-            <% unless review.general_comments.blank? %>
-                <li><%= review.general_comments %>(<%= review.user.email %>)</li>
-            <% end %>
-        <% end %>
-    </ul>
-
-    <h2>What makes it unique?</h2>
-    <ul class="unstyled">
-        <% @technology.reviews.each do |review| %>
-            <% unless review.what_makes_it_unique.blank? %>
-                <li><%= review.what_makes_it_unique %>(<%= review.user.email %>)</li>
-            <% end %>
-        <% end %>
-    </ul>
-
-    <h2>What is it good at?</h2>
-    <ul class="unstyled">
-        <% @technology.reviews.each do |review| %>
-            <% unless review.what_is_it_good_at.blank? %>
-                <li><%= review.what_is_it_good_at %>(<%= review.user.email %>)</li>
-            <% end %>
-        <% end %>
-    </ul>
-
-    <h2>What is it bad at?</h2>
-    <ul class="unstyled">
-        <% @technology.reviews.each do |review| %>
-            <% unless review.what_is_it_bad_at.blank? %>
-                <li><%= review.what_is_it_bad_at %>(<%= review.user.email %>)</li>
-            <% end %>
-        <% end %>
-    </ul>
 </div>
 
