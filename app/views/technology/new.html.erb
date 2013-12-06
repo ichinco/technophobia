@@ -7,12 +7,13 @@
 <% end %>
 
 <div class="container-fluid">
-    <h1>Add a technology</h1>
+    <h1>Add a <%= @type.name %></h1>
     <div class="lead">
     Tell us about a new technology!
     </div>
 
     <%= form_for :technology, url:technology_index_path do |f| %>
+        <%= hidden_field_tag(:technology_type_id, @type.id) %>
         <fieldset class="row-fluid">
             <%= f.label :name %>
             <%= f.text_field :name %>
@@ -21,16 +22,28 @@
             <%= f.label :website %>
             <%= f.text_field :website %>
         </fieldset>
-        <fieldset class="row-fluid">
-            <%= f.label :technology_type %>
-            <%= f.text_field :technology_type, :data =>
-                    { :provide => 'typeahead',
-                      :source => @type} %>
-        </fieldset>
 
-        <div id="type-specific">
-
-        </div>
+        <% @properties.each do |property| %>
+            <%= f.fields_for :values do |builder| %>
+                <fieldset class="row-fluid">
+                    <% if property.property_type == 'text' %>
+                        <%= builder.label :value, property.display_name %>
+                        <%= f.text_field :value %>
+                    <% elsif property.property_type == 'boolean' %>
+                        <label class="checkbox">
+                            <%= f.check_box :value %> <%=property.display_name%>
+                        </label>
+                    <% elsif property.property_type == 'technology' %>
+                        <%= builder.label :value, property.display_name %>
+                        <%= builder.text_field :value, :data =>
+                                { :provide => 'typeahead',
+                                  :source => @technologies,
+                                  :mode => 'multiple',
+                                  :items => 10} %>
+                    <% end %>
+                </fieldset>
+            <% end %>
+        <% end %>
 
         <fieldset class="row-fluid">
             <%= f.submit "submit", :class=>"btn" %>

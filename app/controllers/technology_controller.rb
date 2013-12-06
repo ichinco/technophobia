@@ -2,17 +2,16 @@ class TechnologyController < ApplicationController
   before_filter :authenticate_user!
 
   def new
-    @type = TechnologyType.all.map(&:name)
-    @types = @type.to_json
-    @tech = Technology.all.map{|t| t[:name]}
-    @technologies = @tech.to_json
+    @type_id = params[:technology_type_id]
+    @type = TechnologyType.find(@type_id)
+    @properties = TechnologyProperty.where(:technology_type_id => @type_id)
   end
 
   def create
     @technology = Technology.new(technology_params)
-    @technology_type_name = params[:technology][:technology_type]
-    unless @technology_type_name.blank?
-      @type = TechnologyType.find_by_name(@technology_type_name)
+    @technology_type_id = params[:technology_type_id]
+    unless @technology_type_id.blank?
+      @type = TechnologyType.find(@technology_type_id)
     
       if @type.blank?
         @type = TechnologyType.new
