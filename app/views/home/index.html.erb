@@ -1,16 +1,16 @@
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span5 offset3">
-            <%= form_for :search, url:tech_index_path,
-                         html: {class: "form-inline"}, method: "GET" do |f| %>
-                What
-                <%= f.text_field :technology_type, :data =>
-                        { :provide => 'typeahead',
-                          :source => @type},
-                                 placeholder: "framework"%>
-                should I use
-                <%= f.submit "?", :class=>"btn" %>
+        <div class="span1 offset5 lead">
+            What
+        </div>
+        <div class="span8 offset2">
+            <% @types.each do |type| %>
+                <%= link_to type.name, tech_index_path(:technology_type_id => type.id),
+                            :class=>"btn btn-primary" %>
             <% end %>
+        </div>
+        <div class="span2 offset5 lead">
+            should I use?
         </div>
     </div>
 </div>

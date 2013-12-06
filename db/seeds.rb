@@ -157,3 +157,5 @@ TechnologyType.create(name:"Cache")
 
 @browser = TechnologyType.create(name:"Browser")
 TechnologyProperty.create(display_name:"OS", property_type:"technology", technology_type_id:@browser.id)
+
+@cms = TechnologyType.create(name:"CMS")
