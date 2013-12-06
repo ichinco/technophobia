@@ -10,7 +10,7 @@
   <li><a href="/">Home</a> <span class="divider">/</span></li>
   <li>
       <%= link_to @technology.technology_type.name,
-          tech_index_path(:search => {:technology_type => @technology.technology_type.name}) %>
+          tech_index_path(:technology_type_id => @technology.technology_type.id) %>
       <span class="divider">/</span>
   </li>
   <li class="active"><%= @technology.name %></li>
