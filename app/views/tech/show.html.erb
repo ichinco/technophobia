@@ -18,7 +18,7 @@
 
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span2">
+        <div class="span2 sidebar">
             <h3>Alternatives</h3>
             <div>
                 <% @alternatives.each do |alternative| %>
@@ -27,6 +27,10 @@
             </div>
 
             <h3>In the ecosystem</h3>
+
+            <% @property_values.each do |property_value| %>
+                <h3><%= property_value.property.display_name %></h3>
+            <% end %>
         </div>
         <div class="span10">
 

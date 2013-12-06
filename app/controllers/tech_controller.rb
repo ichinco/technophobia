@@ -6,6 +6,7 @@ class TechController < ApplicationController
     @alternatives = Technology.where(:technology_type_id => @technology.technology_type_id)
     @alternatives = @alternatives.select { |alternative| alternative.id != @technology.id}
     @rating_summary = construct_tech_overview(@technology)
+    @property_values = TechnologyPropertyValue.where(:technology_id => @technology.id)
   end
 
   def index
