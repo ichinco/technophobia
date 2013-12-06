@@ -44,8 +44,11 @@
 
     <h3>In the ecosystem</h3>
 
-    <% @property_values.each do |property_value| %>
-        <h3><%= property_value.property.display_name %></h3>
+    <% @technology.technology_property_values.each do |property_value| %>
+        <h3><%= property_value.technology_property.display_name %></h3>
+        <div>
+            <%= property_value.value %>
+        </div>
     <% end %>
 </div>
 <div class="container-fluid">

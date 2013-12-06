@@ -4,7 +4,7 @@ class Technology < ActiveRecord::Base
   #has_one :built_with, class_name: "Technology"
 
   has_many :reviews
-  has_many :technology_property_values
+  has_many :technology_property_values, :dependent => :destroy
 
   has_and_belongs_to_many(:compatible_with,
     :class_name => "Technology",

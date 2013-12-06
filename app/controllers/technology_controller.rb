@@ -15,18 +15,6 @@ class TechnologyController < ApplicationController
 
   def create
     @technology = Technology.new(technology_params)
-    @technology_type_id = params[:technology][:technology_type_id]
-    unless @technology_type_id.blank?
-      @type = TechnologyType.find(@technology_type_id)
-    
-      if @type.blank?
-        @type = TechnologyType.new
-        @type[:name] = params[:technology][:technology_type]
-        @type.save
-      end
-    
-      @technology.technology_type_id = @type.id
-    end
 
     if @technology.save
       redirect_to tech_url(@technology)
@@ -38,6 +26,8 @@ class TechnologyController < ApplicationController
   private
     def technology_params
       params.require(:technology).permit(:name,
-                                         :website)
+                                         :website,
+                                         :technology_type_id,
+                                         :technology_property_values_attributes => [:technology_property_id, :value])
     end
 end
