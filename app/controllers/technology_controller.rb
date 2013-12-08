@@ -6,6 +6,7 @@ class TechnologyController < ApplicationController
     @type_id = params[:technology_type_id]
     @type = TechnologyType.find(@type_id)
     @technology_properties = TechnologyProperty.where(:technology_type_id => @type_id)
+
     @technology = Technology.new
     @technology.technology_type=@type
     @technology_property_values = @technology_properties.map{ |property|

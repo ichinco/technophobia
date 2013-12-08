@@ -35,12 +35,10 @@
         </fieldset>
 
         <fieldset class="row-fluid">
-            <%= f.label :licenses %>
-            <%= f.text_field :licenses, :data =>
-                                        { :provide => 'typeahead',
-                                          :source => @licenses,
-                                          :mode => 'multiple',
-                                          :items => 10} %>
+            <label for="licenses">Licenses</label>
+            <input name="licenses" type="text" data-provide="typeahead"
+                   data-source="<%= @licenses %>" data-mode="multiple"
+                   data-items="10" />
         </fieldset>
 
         <%= f.fields_for :technology_property_values do |builder| %>
