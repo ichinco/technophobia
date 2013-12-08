@@ -18,5 +18,7 @@ class Technology < ActiveRecord::Base
     :foreign_key => "technology_b_id",
     :association_foreign_key => "technology_a_id")
 
+  has_and_belongs_to_many :licenses
+
   accepts_nested_attributes_for :technology_property_values
 end

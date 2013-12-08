@@ -11,13 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131208002231) do
+ActiveRecord::Schema.define(version: 20131208020101) do
 
   create_table "languages", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "licenses", force: true do |t|
+    t.text     "name"
+    t.text     "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "licenses_technologies", id: false, force: true do |t|
+    t.integer "license_id"
+    t.integer "technology_id"
+  end
+
+  add_index "licenses_technologies", ["technology_id", "license_id"], name: "index_licenses_technologies_on_technology_id_and_license_id"
+  add_index "licenses_technologies", ["technology_id"], name: "index_licenses_technologies_on_technology_id"
 
   create_table "reviews", force: true do |t|
     t.integer  "technology_id"
@@ -44,9 +59,13 @@ ActiveRecord::Schema.define(version: 20131208002231) do
     t.text     "website"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_open_source"
   end
 
   add_index "technologies", ["technology_type_id"], name: "index_technologies_on_technology_type_id"
+
+  create_table "technologies_licenses_tables", force: true do |t|
+  end
 
   create_table "technology_compatible_with", id: false, force: true do |t|
     t.integer "technology_a_id", null: false

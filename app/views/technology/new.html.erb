@@ -28,6 +28,21 @@
             <%= f.text_field :website %>
         </fieldset>
 
+        <fieldset class="row-fluid">
+            <label class="checkbox">
+                <%= f.check_box :is_open_source %> is open source
+            </label>
+        </fieldset>
+
+        <fieldset class="row-fluid">
+            <%= f.label :licenses %>
+            <%= f.text_field :licenses, :data =>
+                                        { :provide => 'typeahead',
+                                          :source => @licenses,
+                                          :mode => 'multiple',
+                                          :items => 10} %>
+        </fieldset>
+
         <%= f.fields_for :technology_property_values do |builder| %>
             <%= builder.hidden_field :technology_property_id %>
             <fieldset>

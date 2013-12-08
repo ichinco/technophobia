@@ -2,6 +2,7 @@ class TechnologyController < ApplicationController
   before_filter :authenticate_user!
 
   def new
+    @licenses = License.all.map.map { |license| license.name }
     @type_id = params[:technology_type_id]
     @type = TechnologyType.find(@type_id)
     @technology_properties = TechnologyProperty.where(:technology_type_id => @type_id)
