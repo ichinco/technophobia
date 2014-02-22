@@ -304,4 +304,13 @@ License.create(link:"http://scripts.sil.org/OFL_web", name:"SIL Open Font Licens
 License.create(link:"http://www.gnu.org/licenses/licenses.html#VerbatimCopying", name:"GNU Verbatim Copying License")
 License.create(link:"http://creativecommons.org/licenses/by-nd/3.0/legalcode", name:"Creative Commons Attribution-NoDerivs 3.0 license (a.k.a. CC&nbsp;BY-ND)")
 
+ReviewType.create(review_type:"numeric",display_name:"overall rating", min_name:"low", max_name:"high")
+ReviewType.create(review_type:"numeric",display_name:"development status", min_name:"inactive", max_name:"active")
+ReviewType.create(review_type:"numeric",display_name:"community", min_name:"inactive", max_name:"active")
+ReviewType.create(review_type:"numeric",display_name:"maturity", min_name:"immature", max_name:"mature")
+ReviewType.create(review_type:"text",display_name:"What makes it unique?")
+ReviewType.create(review_type:"text",display_name:"What is it good at?")
+ReviewType.create(review_type:"text",display_name:"What is it bad at?")
+ReviewType.create(review_type:"text",display_name:"General Comments")
+
 

@@ -49,6 +49,7 @@
         <div class="span9">
 
             <h2>In General</h2>
+            <%= link_to 'add', new_technology_review_type_text_review_path(@technology.id, 8) %>
             <ul class="unstyled">
                 <% @technology.reviews.each do |review| %>
                     <% unless review.general_comments.blank? %>
@@ -58,6 +59,7 @@
             </ul>
 
             <h2>What makes it unique?</h2>
+            <%= link_to 'add', new_technology_review_type_text_review_path(@technology.id, 5) %>
             <ul class="unstyled">
                 <% @technology.reviews.each do |review| %>
                     <% unless review.what_makes_it_unique.blank? %>
@@ -67,6 +69,7 @@
             </ul>
 
             <h2>What is it good at?</h2>
+            <%= link_to 'add', new_technology_review_type_text_review_path(@technology.id, 6) %>
             <ul class="unstyled">
                 <% @technology.reviews.each do |review| %>
                     <% unless review.what_is_it_good_at.blank? %>
@@ -76,6 +79,7 @@
             </ul>
 
             <h2>What is it bad at?</h2>
+            <%= link_to 'add', new_technology_review_type_text_review_path(@technology.id, 7) %>
             <ul class="unstyled">
                 <% @technology.reviews.each do |review| %>
                     <% unless review.what_is_it_bad_at.blank? %>

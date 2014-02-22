@@ -1,0 +1,2 @@
+class NumericReviewController < ApplicationController
+end

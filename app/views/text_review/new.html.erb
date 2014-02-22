@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <h1><%= @review_type.display_name %></h1>
+
+    <%= form_for :review, url: technology_review_type_text_review_index_path(@technology.id, @review_type.id) do |f| %>
+
+        <fieldset class="row-fluid">
+            <%= f.text_area :row, :rows=>4, :class=>"span12" %>
+        </fieldset>
+
+        <fieldset class="row-fluid">
+            <%= f.submit "submit", :class=>"btn" %>
+
+        </fieldset>
+    <% end %>
+</div>

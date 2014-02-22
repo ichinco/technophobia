@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131208020101) do
+ActiveRecord::Schema.define(version: 20140222210457) do
 
   create_table "languages", force: true do |t|
     t.string   "name"
@@ -33,6 +33,28 @@ ActiveRecord::Schema.define(version: 20131208020101) do
 
   add_index "licenses_technologies", ["technology_id", "license_id"], name: "index_licenses_technologies_on_technology_id_and_license_id"
   add_index "licenses_technologies", ["technology_id"], name: "index_licenses_technologies_on_technology_id"
+
+  create_table "numeric_reviews", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "technology_id"
+    t.integer  "review_type_id"
+    t.integer  "review"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "numeric_reviews", ["review_type_id"], name: "index_numeric_reviews_on_review_type_id"
+  add_index "numeric_reviews", ["technology_id"], name: "index_numeric_reviews_on_technology_id"
+  add_index "numeric_reviews", ["user_id"], name: "index_numeric_reviews_on_user_id"
+
+  create_table "review_types", force: true do |t|
+    t.string   "review_type"
+    t.string   "display_name"
+    t.string   "min_name"
+    t.string   "max_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "reviews", force: true do |t|
     t.integer  "technology_id"
@@ -98,6 +120,19 @@ ActiveRecord::Schema.define(version: 20131208020101) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "text_reviews", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "technology_id"
+    t.integer  "review_type_id"
+    t.text     "review"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "text_reviews", ["review_type_id"], name: "index_text_reviews_on_review_type_id"
+  add_index "text_reviews", ["technology_id"], name: "index_text_reviews_on_technology_id"
+  add_index "text_reviews", ["user_id"], name: "index_text_reviews_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

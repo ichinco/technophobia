@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  technology: 
+  type: 
+  review: 1
+
+two:
+  user: 
+  technology: 
+  type: 
+  review: 1
