@@ -1,10 +1,3 @@
-<% content_for :search_form do %>
-    <% form_for :search, url: tech_index_path,
-                html: {class: "navbar-search"}, method: "GET" do |f| %>
-        <%= f.text_field :tech, placeholder: "search", class:"search-query" %>
-        <%= f.submit "search", :class=>"hide" %>
-    <% end %>
-<% end %>
 
 <ul class="breadcrumb">
   <li><a href="/">Home</a> <span class="divider">/</span></li>

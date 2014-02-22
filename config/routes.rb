@@ -21,6 +21,7 @@ Technophobia::Application.routes.draw do
 
   resources :home
   resources :tech
+  resources :search
 
   resources :technology_type do
     resources :technology_property

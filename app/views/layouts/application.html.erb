@@ -18,7 +18,15 @@
 
                 <ul class="nav pull-right">
                     <li>
-                        <%= yield :search_form %>
+                        <form class="navbar-search" action="/search">
+                            <input type="text" name="search_term" placeholder="search" class="search-query"></textfield>
+                            <button type="submit" class="hide"></button>
+                        </form>
+                        <% form_for :search, url: search_index_path,
+                                    html: {class: "navbar-search"}, method: "GET" do |f| %>
+                            <%= f.text_field :search_term, placeholder: "search", class:"search-query"%>
+                            <%= f.submit "search", :class=>"hide" %>
+                        <% end %>
                     </li>
                     <% if user_signed_in? %>
                         <li><%= link_to 'Settings', edit_user_registration_url%></li>
