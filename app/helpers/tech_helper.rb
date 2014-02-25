@@ -1,25 +1,28 @@
 module TechHelper
 
   def construct_tech_overview(technology)
-    @overall_sum = technology.reviews.reduce(0) do |sum, review|
-      sum + review.overall_rating
+    @overall_ratings = technology.numeric_reviews.find_all{|r| r.review_type.id==1}
+    @overall_sum = @overall_ratings.reduce(0) do |sum, review|
+      sum + review.review
     end
-    @development_sum = technology.reviews.reduce(0) do |sum, review|
-      sum + review.development_status
+    @development_ratings = technology.numeric_reviews.find_all{|r| r.review_type.id==2}
+    @development_sum = @development_ratings.reduce(0) do |sum, review|
+      sum + review.review
     end
-    @community_sum = technology.reviews.reduce(0) do |sum, review|
-      sum + review.community
+    @community_ratings = technology.numeric_reviews.find_all{|r| r.review_type.id==3}
+    @community_sum = @community_ratings.reduce(0) do |sum, review|
+      sum + review.review
     end
-    @maturity_sum = technology.reviews.reduce(0) do |sum, review|
-      sum + review.maturity
+    @maturity_ratings = technology.numeric_reviews.find_all{|r| r.review_type.id==3}
+    @maturity_sum = @maturity_ratings.reduce(0) do |sum, review|
+      sum + review.review
     end
 
-    @reviews_count = technology.reviews.size
     @review_summary = TechnologyRatingSummary.new()
-    @review_summary.overall = @reviews_count > 0 ? @overall_sum / @reviews_count : 0
-    @review_summary.development = @reviews_count > 0 ? @development_sum / @reviews_count : 0
-    @review_summary.community = @reviews_count > 0 ? @community_sum / @reviews_count : 0
-    @review_summary.maturity = @reviews_count > 0 ? @maturity_sum / @reviews_count : 0
+    @review_summary.overall = @overall_ratings.size > 0 ? @overall_sum / @overall_ratings.size : 0
+    @review_summary.development = @development_ratings.size > 0 ? @development_sum / @development_ratings.size : 0
+    @review_summary.community = @community_ratings.size > 0 ? @community_sum / @community_ratings.size : 0
+    @review_summary.maturity = @maturity_ratings.size > 0 ? @maturity_sum / @maturity_ratings.size : 0
 
     @review_summary
   end
