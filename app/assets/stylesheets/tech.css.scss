@@ -1,3 +1,20 @@
 // Place all the styles related to the tech controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.rating {
+  width: 100px;
+  height: 20px;
+}
+
+.review-form {
+  display: inline-block;
+}
+
+.iconless-button {
+  display: inline-block;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  background:none;
+}

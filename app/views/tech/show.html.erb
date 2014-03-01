@@ -16,13 +16,13 @@
 <div class="span3 sidebar">
     <dl class="dl-horizontal">
         <dt>Overall rating</dt>
-        <dd><%= @rating_summary.overall %></dd>
+        <dd class="rating"><%= render partial:"stars", locals: {rating: @rating_summary.overall, cap:5, technology_id:@technology.id, review_type_id:1} %></dd>
         <dt>Development</dt>
-        <dd><%= @rating_summary.development %></dd>
+        <dd class="rating"><%= render partial:"stars", locals: {rating: @rating_summary.development, cap:5, technology_id:@technology.id, review_type_id:2} %></dd>
         <dt>Community</dt>
-        <dd><%= @rating_summary.community %></dd>
+        <dd class="rating"><%= render partial:"stars", locals: {rating: @rating_summary.community, cap:5, technology_id:@technology.id, review_type_id:3} %></dd>
         <dt>Maturity</dt>
-        <dd><%= @rating_summary.maturity %></dd>
+        <dd class="rating"><%= render partial:"stars", locals: {rating: @rating_summary.maturity, cap:5, technology_id:@technology.id, review_type_id:4} %></dd>
     </dl>
 
     <h3>Alternatives</h3>
