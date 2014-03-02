@@ -21,7 +21,9 @@ Technophobia::Application.routes.draw do
     resources :review
     resources :review_type do
       resources :numeric_review
-      resources :text_review
+      resources :text_review do
+        resources :meta_review
+      end
     end
   end
 

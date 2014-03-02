@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140225025134) do
+ActiveRecord::Schema.define(version: 20140302164524) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -66,6 +66,17 @@ ActiveRecord::Schema.define(version: 20140225025134) do
 
   add_index "licenses_technologies", ["technology_id", "license_id"], name: "index_licenses_technologies_on_technology_id_and_license_id"
   add_index "licenses_technologies", ["technology_id"], name: "index_licenses_technologies_on_technology_id"
+
+  create_table "meta_reviews", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "text_review_id"
+    t.integer  "valiance"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "meta_reviews", ["text_review_id"], name: "index_meta_reviews_on_text_review_id"
+  add_index "meta_reviews", ["user_id"], name: "index_meta_reviews_on_user_id"
 
   create_table "numeric_reviews", force: true do |t|
     t.integer  "user_id"

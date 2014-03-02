@@ -47,43 +47,20 @@
 
             <h2>In General</h2>
             <%= link_to 'add', new_technology_review_type_text_review_path(@technology.id, 8) %>
-            <ul class="unstyled">
-                <% @technology.text_reviews.find_all{|r| r.review_type.id==8}.each do |review| %>
-                    <% unless review.review.blank? %>
-                        <li><%= review.review %>(<%= review.user.email %>)</li>
-                    <% end %>
-                <% end %>
-            </ul>
+            <%= render partial:"text_review", locals: {text_reviews:@technology.text_reviews, review_type_id:8, technology_id:@technology.id} %>
+
 
             <h2>What makes it unique?</h2>
             <%= link_to 'add', new_technology_review_type_text_review_path(@technology.id, 5) %>
-            <ul class="unstyled">
-                <% @technology.text_reviews.find_all{|r| r.review_type.id==5}.each do |review| %>
-                    <% unless review.review.blank? %>
-                        <li><%= review.review %>(<%= review.user.email %>)</li>
-                    <% end %>
-                <% end %>
-            </ul>
+            <%= render partial:"text_review", locals: {text_reviews:@technology.text_reviews, review_type_id:5, technology_id:@technology.id} %>
 
             <h2>What is it good at?</h2>
             <%= link_to 'add', new_technology_review_type_text_review_path(@technology.id, 6) %>
-            <ul class="unstyled">
-                <% @technology.text_reviews.find_all{|r| r.review_type.id==6}.each do |review| %>
-                    <% unless review.review.blank? %>
-                        <li><%= review.review %>(<%= review.user.email %>)</li>
-                    <% end %>
-                <% end %>
-            </ul>
+            <%= render partial:"text_review", locals: {text_reviews:@technology.text_reviews, review_type_id:6, technology_id:@technology.id} %>
 
             <h2>What is it bad at?</h2>
             <%= link_to 'add', new_technology_review_type_text_review_path(@technology.id, 7) %>
-            <ul class="unstyled">
-                <% @technology.text_reviews.find_all{|r| r.review_type.id==7}.each do |review| %>
-                    <% unless review.review.blank? %>
-                        <li><%= review.review %>(<%= review.user.email %>)</li>
-                    <% end %>
-                <% end %>
-            </ul>
+            <%= render partial:"text_review", locals: {text_reviews:@technology.text_reviews, review_type_id:7, technology_id:@technology.id} %>
         </div>
     </div>
 </div>
