@@ -3,16 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .rating {
-  width: 100px;
-  height: 20px;
+  //width: 100px;
+  //height: 20px;
+  cursor: pointer;
 }
 
 .review-form {
-  display: inline-block;
+  cursor: pointer;
+  display:inline-block;
+  margin-right:-7px;
+  padding-right:2px;
+  padding-left:5px;
 }
 
 .iconless-button {
-  display: inline-block;
   border: none;
   padding: 0px;
   margin: 0px;

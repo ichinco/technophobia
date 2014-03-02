@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready( ->
-  $(".iconless-button").hover(
+  $(".iconless-button").mouseenter(
     (evt) ->
       target = $(evt.target).parents(".rating")
       target.find("div.full-star").addClass('hidden');
@@ -14,7 +14,10 @@ $(document).ready( ->
         form = target.find(".review-form[data-star='#{r}']")
         form.find("div.full-star").removeClass('hidden')
         form.find("div.empty-star").addClass('hidden')
-    , (evt) ->
+  )
+
+  $(".rating").mouseleave(
+    (evt) ->
       target = $(evt.target).parents(".rating")
       target.find("div.star").removeClass('hidden');
       target.find("div.no-star").addClass('hidden');
