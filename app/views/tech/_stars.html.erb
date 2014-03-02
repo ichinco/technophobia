@@ -1,18 +1,23 @@
-<% (0 .. rating).each do |r| %>
+<% (0 ... cap).each do |r| %>
     <%= form_for :review, url:technology_review_type_numeric_review_index_path(technology_id, review_type_id),
-        html: {:class => "review-form"} do |f|  %>
+        html: {:class => "review-form", :"data-star" => r} do |f|  %>
         <%= f.hidden_field :review, :value => r %>
         <%= button_tag(type: 'submit', class:"iconless-button") do %>
-            <i class="icon-star"></i>
-        <% end %>
-    <% end %>
-<% end %>
-<% (0 ... (cap-rating-1)).each do |r| %>
-    <%= form_for :review, url:technology_review_type_numeric_review_index_path(technology_id, review_type_id),
-                 html: {:class => "review-form"} do |f|  %>
-        <%= f.hidden_field :review, :value => (rating + r + 1) %>
-        <%= button_tag(type: 'submit', class: "iconless-button") do %>
-            <i class="icon-star-empty"></i>
+            <% if r <= rating %>
+                <div class="hidden empty-star no-star" >
+                    <i class="icon-star-empty"></i>
+                </div>
+                <div class="full-star star" >
+                    <i class="icon-star"></i>
+                </div>
+            <% else %>
+                <div class="hidden full-star no-star" >
+                    <i class="icon-star"></i>
+                </div>
+                <div class="empty-star star">
+                    <i class="icon-star-empty"></i>
+                </div>
+            <%end%>
         <% end %>
     <% end %>
 <% end %>

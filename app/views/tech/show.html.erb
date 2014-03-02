@@ -14,7 +14,7 @@
     <h1><%= @technology[:name] %></h1>
 </div>
 <div class="span3 sidebar">
-    <dl class="dl-horizontal">
+    <dl>
         <dt>Overall rating</dt>
         <dd class="rating"><%= render partial:"stars", locals: {rating: @rating_summary.overall, cap:5, technology_id:@technology.id, review_type_id:1} %></dd>
         <dt>Development</dt>
