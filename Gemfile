@@ -40,6 +40,7 @@ end
 
 gem 'flatstrap-sass', '~> 2.3.1.0'
 gem 'font-awesome-rails'
+gem "select2-rails"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
