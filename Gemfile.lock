@@ -80,6 +80,8 @@ GEM
       sass (~> 3.2)
     font-awesome-rails (3.0.2.0)
       railties (>= 3.1)
+    font-awesome-sass (4.0.3.1)
+      sass (~> 3.2)
     formtastic (2.3.0.rc2)
       actionpack (>= 3.0)
     has_scope (0.6.0.rc)
@@ -192,7 +194,7 @@ DEPENDENCIES
   dalli
   devise
   flatstrap-sass (~> 2.3.1.0)
-  font-awesome-rails
+  font-awesome-sass
   jbuilder (~> 1.2)
   jquery-rails
   memcachier

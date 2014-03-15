@@ -39,7 +39,7 @@ group :doc do
 end
 
 gem 'flatstrap-sass', '~> 2.3.1.0'
-gem 'font-awesome-rails'
+gem 'font-awesome-sass'
 gem "select2-rails"
 
 # Use ActiveModel has_secure_password
@@ -61,4 +61,3 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'memcachier'
 gem 'dalli'
 gem 'actionpack-action_caching'
-gem "font-awesome-rails"
