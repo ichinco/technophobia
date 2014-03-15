@@ -1,6 +1,8 @@
 class TechnologyController < ApplicationController
   before_filter :authenticate_user!
 
+  caches_action :new
+
   def new
     @licenses = License.all.map.map { |license| license.name }
     @type_id = params[:technology_type_id]

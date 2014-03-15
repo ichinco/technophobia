@@ -1,5 +1,8 @@
 class ReviewController < ApplicationController
   before_filter :authenticate_user!
+
+  caches_action :new, expires_in: 1.minutes
+
   def new
     @technology = Technology.find(params[:technology_id])
   end
