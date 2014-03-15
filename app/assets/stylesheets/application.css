@@ -11,6 +11,7 @@
  *= require_self
  *= require_tree .
  *= require flatstrap/bootstrap
+ *= require font-awesome
  *= require select2
  *= require select2-bootstrap
  */

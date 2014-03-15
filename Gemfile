@@ -61,3 +61,4 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'memcachier'
 gem 'dalli'
 gem 'actionpack-action_caching'
+gem "font-awesome-rails"
