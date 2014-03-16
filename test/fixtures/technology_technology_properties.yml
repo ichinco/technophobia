@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  technology_type_id: 
+  display_name: MyString
+  value_type_id: 
+
+two:
+  technology_type_id: 
+  display_name: MyString
+  value_type_id: 

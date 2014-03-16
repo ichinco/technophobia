@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140302164524) do
+ActiveRecord::Schema.define(version: 20140316195610) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -158,6 +158,28 @@ ActiveRecord::Schema.define(version: 20140302164524) do
 
   add_index "technology_property_values", ["technology_id"], name: "index_technology_property_values_on_technology_id"
   add_index "technology_property_values", ["technology_property_id"], name: "index_technology_property_values_on_technology_property_id"
+
+  create_table "technology_technology_properties", force: true do |t|
+    t.integer  "technology_type_id"
+    t.string   "display_name"
+    t.integer  "value_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "technology_technology_properties", ["technology_type_id"], name: "index_technology_technology_properties_on_technology_type_id"
+  add_index "technology_technology_properties", ["value_type_id"], name: "index_technology_technology_properties_on_value_type_id"
+
+  create_table "technology_technology_values", force: true do |t|
+    t.integer  "technology_id"
+    t.integer  "value_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "technology_technology_property_id"
+  end
+
+  add_index "technology_technology_values", ["technology_id"], name: "index_technology_technology_values_on_technology_id"
+  add_index "technology_technology_values", ["value_id"], name: "index_technology_technology_values_on_value_id"
 
   create_table "technology_types", force: true do |t|
     t.string   "name"

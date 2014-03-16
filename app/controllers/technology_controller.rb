@@ -8,13 +8,18 @@ class TechnologyController < ApplicationController
     @type_id = params[:technology_type_id]
     @type = TechnologyType.find(@type_id)
     @technology_properties = TechnologyProperty.where(:technology_type_id => @type_id)
+    @technology_technology_properties = TechnologyTechnologyProperty.where(:technology_type_id => @type_id)
 
     @technology = Technology.new
     @technology.technology_type=@type
     @technology_property_values = @technology_properties.map{ |property|
       @prop = TechnologyPropertyValue.new(:technology_property=>property)
     }
+    @technology_technology_values = @technology_technology_properties.map { |property|
+      @prop = TechnologyTechnologyValue.new(:technology_technology_property=>property)
+    }
     @technology.technology_property_values = @technology_property_values
+    @technology.technology_technology_values = @technology_technology_values
   end
 
   def create

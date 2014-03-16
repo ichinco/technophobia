@@ -29,9 +29,8 @@
 
         <fieldset class="row-fluid">
             <label for="licenses">Licenses</label>
-            <input name="licenses" type="text" data-provide="typeahead"
-                   data-source="<%= @licenses %>" data-mode="multiple"
-                   data-items="10" />
+            <%= f.collection_select(:licenses, License.all, :id, :name,
+                                  {}, {:class=>"select2",:multiple=>true} ) %>
         </fieldset>
 
         <%= f.fields_for :technology_property_values do |builder| %>
@@ -44,14 +43,16 @@
                     <label class="checkbox">
                         <%= builder.check_box :value %> <%=builder.object.technology_property.display_name%>
                     </label>
-                <% elsif builder.object.technology_property.property_type == 'technology' %>
-                    <%= builder.label :value, builder.object.technology_property.display_name %>
-                    <%= builder.text_field :value, :data =>
-                            { :provide => 'typeahead',
-                              :source => @technologies,
-                              :mode => 'multiple',
-                              :items => 10} %>
                 <% end %>
+            </fieldset>
+
+        <% end %>
+        <%= f.fields_for :technology_technology_values do |builder| %>
+            <%= builder.hidden_field :technology_technology_property_id %>
+            <fieldset>
+                <%= builder.label :value, builder.object.technology_technology_property.display_name %>
+                <%= f.collection_select(:licenses, Technology.where(:technology_type_id=>builder.object.technology_technology_property.value_type_id),
+                                        :id, :name, {}, {:class=>"select2",:multiple=>true} ) %>
             </fieldset>
 
         <% end %>
