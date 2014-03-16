@@ -51,7 +51,7 @@
             <%= builder.hidden_field :technology_technology_property_id %>
             <fieldset>
                 <%= builder.label :value, builder.object.technology_technology_property.display_name %>
-                <%= f.collection_select(:licenses, Technology.where(:technology_type_id=>builder.object.technology_technology_property.value_type_id),
+                <%= builder.collection_select(:value, Technology.where(:technology_type_id=>builder.object.technology_technology_property.value_type_id),
                                         :id, :name, {}, {:class=>"select2",:multiple=>true} ) %>
             </fieldset>
 

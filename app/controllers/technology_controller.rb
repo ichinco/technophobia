@@ -26,6 +26,14 @@ class TechnologyController < ApplicationController
     @technology = Technology.new(technology_params)
 
     if @technology.save
+      technology_technology_params.each do |a|
+        v = TechnologyTechnologyValue.new()
+        v.technology_id = @technology.id
+        v.value_id=a[:value]
+        v.technology_technology_property_id = a[:technology_technology_property_id]
+        v.save()
+      end
+
       redirect_to tech_url(@technology)
     else
       render 'new'
@@ -37,6 +45,24 @@ class TechnologyController < ApplicationController
       params.require(:technology).permit(:name,
                                          :website,
                                          :technology_type_id,
-                                         :technology_property_values_attributes => [:technology_property_id, :value])
+                                         :technology_property_values_attributes => [:technology_property_id, :value]
+                                         )
     end
+
+  private
+  def technology_technology_params
+    b = params[:technology][:technology_technology_values_attributes].collect do |attr|
+      attr.collect do |a|
+        if a.is_a? Hash
+          a[:value].collect do |c|
+            unless c.blank?
+              {:technology_technology_property_id => a[:technology_technology_property_id], :value=> c}
+            end
+          end
+        end
+      end
+    end
+
+    b.flatten.compact
+  end
 end
