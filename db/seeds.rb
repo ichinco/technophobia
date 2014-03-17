@@ -1036,7 +1036,7 @@ ReviewType.create(review_type:"text",display_name:"General Comments")
 @ocaml = Technology.where(:name=>"OCaml").first
 @erlang = Technology.where(:name=>"Erlang").first
 
-@language = TechnologyProperty.where(:display_name=>"language",:technology_type_id=>2).first
+@language = TechnologyTechnologyProperty.where(:display_name=>"Language",:technology_type_id=>2).first
 
 @aspnet=Technology.create(technology_type_id:2,name:'ASP.NET MVC Framework (ASP.NET MVC)')
 TechnologyTechnologyValue.create(technology:@aspnet,value:@asp,technology_technology_property:@language)

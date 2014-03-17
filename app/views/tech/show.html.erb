@@ -40,10 +40,12 @@
     <% end %>
 
     <% @technology.technology_technology_values.each do |property_value| %>
-        <h3><%= property_value.technology_technology_property.display_name %></h3>
-        <div>
-            <%= property_value.value.name %>
-        </div>
+        <% if property_value.value.present? %>
+            <h3><%= property_value.technology_technology_property.display_name %></h3>
+            <div>
+                <%= property_value.value.name %>
+            </div>
+        <% end %>
     <% end %>
 </div>
 <div class="container-fluid">
