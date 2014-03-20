@@ -2,17 +2,31 @@
     <% text_reviews.find_all{|r| r.review_type.id==review_type_id}.each do |review| %>
         <% unless review.review.blank? %>
             <li>
-                <%= form_for :meta_review, url:technology_review_type_text_review_meta_review_index_path(technology_id, review_type_id, review.id) do |f| %>
+                <div class="top-line-review">
+                    <div class="meta-review">
+                        <%= form_for :meta_review,
+                                     url:technology_review_type_text_review_meta_review_index_path(technology_id, review_type_id, review.id),
+                                     html: {:class=>"text-review"} do |f| %>
 
-                    <%= f.hidden_field :valiance, :value=>1 %>
-                    <%= button_tag(type:'submit', class:"iconless-button") do %>
-                        <i class="icon-arrow-up"></i>
-                    <% end %>
-                <% end %>
+                            <%= f.hidden_field :valiance, :value=>1 %>
+                            <%= button_tag(type:'submit', class:"iconless-button") do %>
+                                <i class="icon-arrow-up"></i>
+                            <% end %>
+                        <% end %>
+                    </div>
+
+                    <div class="review-headline">
+                        <%= review.user.username %>
+                    </div>
+                </div>
+
+
+                <div class="review-text">
+                            <%= review.review %>
+                </div>
+
 
                 <!--<i class="icon-arrow-down"></i>-->
-                <%= review.review %>
-                (<%= review.user.email %>)
             </li>
         <% end %>
     <% end %>

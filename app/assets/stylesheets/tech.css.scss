@@ -16,9 +16,29 @@
   padding-left:5px;
 }
 
+.text-review {
+  margin-bottom:0;
+}
+
 .iconless-button {
   border: none;
   padding: 0px;
   margin: 0px;
   background:none;
+}
+
+.meta-review .iconless-button:hover {
+  color: green;
+}
+
+.meta-review {
+  display: inline-block;
+}
+
+.review-text {
+  display: inline-block;
+}
+
+.review-headline {
+  display: inline-block;
 }
