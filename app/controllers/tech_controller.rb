@@ -6,8 +6,21 @@ class TechController < ApplicationController
 
   def show
     @technology = Technology.find(params[:id])
+    @language = TechnologyType.where(:name =>"language").first
+    @language_values = @technology.technology_technology_values.collect{|value|
+      if value.technology_technology_property.value_type.id==@language.id
+        value.value
+      end
+    }.compact
     @alternatives = Technology.where(:technology_type_id => @technology.technology_type_id)
     @alternatives = @alternatives.select { |alternative| alternative.id != @technology.id}
+    @alternatives = @alternatives.select { |alternative|
+      has_language = false
+      alternative.technology_technology_values.each{ |value|
+        has_language = has_language || (value.technology_technology_property.value_type.id==@language.id && @language_values.include?(value.value))
+      }
+      has_language
+    }
     @rating_summary = construct_tech_overview(@technology)
     @property_values = TechnologyPropertyValue.where(:technology_id => @technology.id)
   end
