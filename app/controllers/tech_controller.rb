@@ -23,6 +23,14 @@ class TechController < ApplicationController
     }
     @rating_summary = construct_tech_overview(@technology)
     @property_values = TechnologyPropertyValue.where(:technology_id => @technology.id)
+    @technology_property_values = @technology.technology_technology_values.collect {|value| value.technology_technology_property}
+    @technology_property_value_hash = {}
+    @technology_property_values.each{|value|
+      @technology_property_value_hash[value] = Array.new
+    }
+    @technology.technology_technology_values.each{|value|
+      @technology_property_value_hash[value.technology_technology_property].push(value.value)
+    }
   end
 
   def index

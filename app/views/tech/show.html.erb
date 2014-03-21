@@ -39,14 +39,13 @@
         </div>
     <% end %>
 
-    <% @technology.technology_technology_values.each do |property_value| %>
-        <% if property_value.value.present? %>
-            <h3><%= property_value.technology_technology_property.display_name %></h3>
-            <div>
-                <%= property_value.value.name %>
-            </div>
+    <% @technology_property_value_hash.each do |property, values| %>
+        <h3><%= property.display_name %></h3>
+        <% values.each do |value| %>
+            <%= value.name %>
         <% end %>
     <% end %>
+
 </div>
 <div class="container-fluid">
     <div class="row-fluid">
