@@ -3,5 +3,143 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .select2-container {
-  width: 100%;
+    vertical-align: middle;
+    width: 80%;
+}
+
+.select2-container .select2-choice,
+.select2-container-multi .select2-choices {
+    min-height: 0;
+    height: 20px !important;
+    line-height: 20px !important;
+    border: 1px solid #c9d0d6 !important;
+    font-size: .95em;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: none !important;
+    background-color: #fff;
+    filter: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+    padding: 8px 10px 7px 10px !important;
+}
+
+.select2-container .select2-choice div,
+.select2-container.select2-container-disabled .select2-choice div {
+    border-left: none;
+    background: none;
+    filter: none;
+}
+
+.control-group.error [class^="select2-choice"] {
+    border-color: #B94A48;
+}
+
+.select2-container-multi .select2-choices .select2-search-field {
+    height: 20px;
+    line-height: 20px;
+}
+
+.select2-container-active .select2-choice,
+.select2-container-multi.select2-container-active .select2-choices,
+.select2-drop.select2-drop-active {
+    border-color: rgba(82, 168, 236, 0.8);
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.select2-container .select2-choices .select2-search-choice {
+    display: inline-block;
+    padding: 4px 4px 4px 14px;
+    font-size: 11.844px;
+    font-weight: bold;
+    line-height: 14px;
+    color: #fff;
+    vertical-align: baseline;
+    white-space: nowrap;
+    text-shadow: none;
+    background: #999;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border: 0;
+}
+
+.select2-container .select2-choices .select2-search-choice-focus {
+    opacity: 0.5;
+}
+
+.select2-search-choice-close, .select2-search-choice-close:hover  {
+    background: none;
+    font: inherit;
+    font-size: 15px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.select2-search-choice-close:hover {
+    opacity: 0.7;
+}
+
+.select2-search-choice-close:after {
+    content: "\00D7";
+}
+
+.select2-container .select2-choices .select2-search-field .select2-input {
+    padding: 0 5px;
+}
+
+[class^="input-"] .select2-container {
+    font-size: 14px;
+}
+
+.input-prepend [class^="select2-choice"] {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.input-append [class^="select2-choice"] {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.select2-dropdown-open [class^="select2-choice"] {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.select2-dropdown-open.select2-drop-above [class^="select2-choice"] {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+[class^="input-"] [class^="select2-choice"] > div {
+    display: none;
+}
+
+[class^="input-"] .select2-offscreen {
+    position: absolute;
+}
+
+.select2-drop {
+    border: 1px solid #ccc;
+    border-top: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+/**
+ * This stops the quick flash when a native selectbox is shown and
+ * then replaced by a select2 input when javascript kicks in. This can be
+ * removed if javascript is not present
+ */
+select.select2 {
+    height: 28px;
+    visibility: hidden;
 }
