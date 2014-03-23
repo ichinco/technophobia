@@ -16,7 +16,7 @@ $(document).ready( ->
         form.find("div.empty-star").addClass('hidden')
   )
 
-  $(".rating").mouseleave(
+  $(".iconless-button").mouseleave(
     (evt) ->
       target = $(evt.target).parents(".rating")
       target.find("div.star").removeClass('hidden');

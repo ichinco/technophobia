@@ -1,20 +1,21 @@
-<% (0 ... cap).each do |r| %>
+<% review_strength_class = count > 0 ? "high-review-count" : "low-review-count" %>
+<% (1 .. cap).each do |r| %>
     <%= form_for :review, url:technology_review_type_numeric_review_index_path(technology_id, review_type_id),
         html: {:class => "review-form", :"data-star" => r} do |f|  %>
         <%= f.hidden_field :review, :value => r %>
         <%= button_tag(type: 'submit', class:"iconless-button") do %>
             <% if r <= rating %>
-                <div class="hidden empty-star no-star" >
+                <div class="hidden empty-star no-star <%=review_strength_class%>" >
                     <i class="icon-star-empty"></i>
                 </div>
-                <div class="full-star star" >
+                <div class="full-star star <%=review_strength_class%>" >
                     <i class="icon-star"></i>
                 </div>
             <% else %>
-                <div class="hidden full-star no-star" >
+                <div class="hidden full-star no-star <%=review_strength_class%>" >
                     <i class="icon-star"></i>
                 </div>
-                <div class="empty-star star">
+                <div class="empty-star star <%=review_strength_class%>">
                     <i class="icon-star-empty"></i>
                 </div>
             <%end%>

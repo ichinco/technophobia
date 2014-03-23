@@ -15,14 +15,14 @@
 </div>
 <div class="span3 sidebar">
     <dl>
-        <dt>Overall rating</dt>
-        <dd class="rating"><%= render partial:"stars", locals: {rating: @rating_summary.overall, cap:5, technology_id:@technology.id, review_type_id:1} %></dd>
-        <dt>Development</dt>
-        <dd class="rating"><%= render partial:"stars", locals: {rating: @rating_summary.development, cap:5, technology_id:@technology.id, review_type_id:2} %></dd>
-        <dt>Community</dt>
-        <dd class="rating"><%= render partial:"stars", locals: {rating: @rating_summary.community, cap:5, technology_id:@technology.id, review_type_id:3} %></dd>
-        <dt>Maturity</dt>
-        <dd class="rating"><%= render partial:"stars", locals: {rating: @rating_summary.maturity, cap:5, technology_id:@technology.id, review_type_id:4} %></dd>
+        <dt>Overall rating (<%= @rating_summary.overall_count %>)</dt>
+        <dd class="rating"><%= render partial:"stars", locals: {rating: @rating_summary.overall, count:@rating_summary.overall_count, cap:5, technology_id:@technology.id, review_type_id:1} %></dd>
+        <dt>Development (<%= @rating_summary.development_count %>)</dt>
+        <dd class="rating"><%= render partial:"stars", locals: {rating: @rating_summary.development, count:@rating_summary.development_count, cap:5, technology_id:@technology.id, review_type_id:2} %></dd>
+        <dt>Community (<%= @rating_summary.community_count %>)</dt>
+        <dd class="rating"><%= render partial:"stars", locals: {rating: @rating_summary.community, count:@rating_summary.community_count, cap:5, technology_id:@technology.id, review_type_id:3} %></dd>
+        <dt>Maturity (<%= @rating_summary.maturity_count %>)</dt>
+        <dd class="rating"><%= render partial:"stars", locals: {rating: @rating_summary.maturity, count:@rating_summary.maturity_count, cap:5, technology_id:@technology.id, review_type_id:4} %></dd>
     </dl>
 
     <h3>Alternatives</h3>
@@ -42,7 +42,9 @@
     <% @technology_property_value_hash.each do |property, values| %>
         <h3><%= property.display_name %></h3>
         <% values.each do |value| %>
-            <%= value.name %>
+            <% unless value.nil? %>
+                <%= value.name %>
+            <% end %>
         <% end %>
     <% end %>
 
