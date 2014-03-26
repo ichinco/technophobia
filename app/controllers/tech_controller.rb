@@ -1,9 +1,6 @@
 class TechController < ApplicationController
   include TechHelper
 
-  caches_action :show, expires_in: 15.minutes
-  caches_action :index, expires_in: 1.minutes
-
   def show
     @technology = Technology.find(params[:id])
     @languages = @technology.technology_technology_values.collect do |value|
