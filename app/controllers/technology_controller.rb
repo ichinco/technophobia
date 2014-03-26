@@ -1,8 +1,6 @@
 class TechnologyController < ApplicationController
   before_filter :authenticate_user!
 
-  caches_action :new
-
   def new
     @type_id = params[:technology_type_id]
     @type = TechnologyType.find(@type_id)
