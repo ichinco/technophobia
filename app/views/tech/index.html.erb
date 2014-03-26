@@ -9,10 +9,14 @@
 
     <h1>Find out what people think of:</h1>
     <ul class="unstyled">
-        <% @technologies.each do |technology| %>
-            <li class="row-fluid">
-                <h2><%= link_to technology[:name], tech_url(technology), class: "span12" %></h2>
-            </li>
+        <% cache ['technology-index', @technology_type, @technologies] do %>
+            <% @technologies.each do |technology| %>
+                <% cache ['technology-index', @technology_type, technology] do %>
+                    <li class="row-fluid">
+                        <h2><%= link_to technology[:name], tech_url(technology), class: "span12" %></h2>
+                    </li>
+                <% end %>
+            <% end %>
         <% end %>
     </ul>
 
