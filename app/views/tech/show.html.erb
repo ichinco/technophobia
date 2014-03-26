@@ -15,7 +15,7 @@
 </div>
 <div class="span3 sidebar">
     <dl>
-        <% cache ['numeric-reviews', @technology.numeric_reviews] do %>
+        <% cache ['numeric-reviews', @technology, @technology.numeric_reviews] do %>
         <dt>Overall rating (<%= @rating_summary.overall_count %>)</dt>
         <dd class="rating"><%= render partial:"stars", locals: {rating: @rating_summary.overall, count:@rating_summary.overall_count, cap:5, technology_id:@technology.id, review_type_id:1} %></dd>
         <dt>Development (<%= @rating_summary.development_count %>)</dt>
@@ -29,16 +29,16 @@
 
     <h3>Alternatives</h3>
     <div>
-        <% cache ['alternatives', @alternatives] do %>
+        <% cache ['alternatives', @technology, @alternatives] do %>
         <% @alternatives.each do |alternative| %>
             <%= link_to alternative.name, tech_url(alternative) %>
         <% end %>
         <% end %>
     </div>
 
-    <% cache ['technology_property_values', @technology.technology_property_values] do %>
+    <% cache ['technology_property_values', @technology, @technology.technology_property_values] do %>
         <% @technology.technology_property_values.each do |property_value| %>
-            <% cache do ['property_value', property_value] %>
+            <% cache do ['property_value', @technology, property_value] %>
             <h3><%= property_value.technology_property.display_name %></h3>
             <div>
                 <%= property_value.value %>
@@ -60,7 +60,7 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span9">
-            <% cache ['text_reviews', @technology.text_reviews] do %>
+            <% cache ['text_reviews', @technology, @technology.text_reviews] do %>
                 <h2>In General</h2>
                 <%= link_to 'add', new_technology_review_type_text_review_path(@technology.id, 8) %>
 
