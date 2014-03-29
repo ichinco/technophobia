@@ -62,3 +62,4 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'memcachier'
 gem 'dalli'
+gem 'sanitize'

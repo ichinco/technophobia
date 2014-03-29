@@ -21,6 +21,8 @@ class TechnologyController < ApplicationController
 
   def create
     @technology = Technology.new(technology_params)
+    @technology.name = Sanitize.clean(@technology.name)
+    @technology.website = Sanitize.clean(@technology.website)
 
     if @technology.save
       technology_technology_params.each do |a|

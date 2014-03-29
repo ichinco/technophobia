@@ -15,6 +15,7 @@ class TextReviewController < ApplicationController
     @text_review = TextReview.new(review_params)
     @text_review.technology = @technology
     @text_review.review_type = @review_type
+    @text_review.review = Sanitize.clean(@text_review.review, Sanitize::Config::BASIC)
     @text_review.user = current_user
 
     if @text_review.save
