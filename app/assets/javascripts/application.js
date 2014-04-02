@@ -18,3 +18,4 @@
 // Loads all Bootstrap javascripts
 //= require bootstrap
 //= require select2
+//= require jquery.form

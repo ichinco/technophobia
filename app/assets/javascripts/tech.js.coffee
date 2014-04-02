@@ -22,4 +22,13 @@ $(document).ready( ->
       target.find("div.star").removeClass('hidden');
       target.find("div.no-star").addClass('hidden');
   )
+
+  $('.review-form').ajaxForm(() ->
+      console.log("submitted");
+  );
+
+  $('.text-review').ajaxForm({
+    success : (resp,status,xhr,elt) ->
+      elt.remove()
+  });
 )

@@ -13,7 +13,7 @@ module TechHelper
     @community_sum = @community_ratings.reduce(0) do |sum, review|
       sum + review.review
     end
-    @maturity_ratings = technology.numeric_reviews.find_all{|r| r.review_type.id==3}
+    @maturity_ratings = technology.numeric_reviews.find_all{|r| r.review_type.id==4}
     @maturity_sum = @maturity_ratings.reduce(0) do |sum, review|
       sum + review.review
     end
