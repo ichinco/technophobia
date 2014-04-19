@@ -4,12 +4,12 @@
     <%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
         <%= devise_error_messages! %>
 
-        <fieldset>
+        <fieldset class="tech">
             <%= f.label :email %><br />
             <%= f.email_field :email, :autofocus => true %>
         </fieldset>
 
-        <fieldset>
+        <fieldset class="tech">
             <%= f.submit "Resend unlock instructions", :class=>"btn" %>
         </fieldset>
     <% end %>

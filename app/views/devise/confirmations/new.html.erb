@@ -3,12 +3,12 @@
 <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <fieldset>
+  <fieldset class="tech">
       <%= f.label :email %>
       <%= f.email_field :email, :autofocus => true %>
   </fieldset>
 
-  <fieldset>
+  <fieldset class="tech">
       <%= f.submit "Resend confirmation instructions", :class=>"btn" %>
   </fieldset>
 <% end %>
