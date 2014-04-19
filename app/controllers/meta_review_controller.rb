@@ -16,7 +16,7 @@ class MetaReviewController < ApplicationController
     end
 
     if @meta_review.save
-      redirect_to tech_path(@technology)
+      redirect_to technology_path(@technology)
     end
   end
 

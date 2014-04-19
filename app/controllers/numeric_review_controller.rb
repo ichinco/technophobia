@@ -17,9 +17,9 @@ class NumericReviewController < ApplicationController
     end
 
     if @text_review.save
-      redirect_to tech_path(@technology)
+      redirect_to technology_path(@technology)
     else
-      redirect_to tech_path(@technology)
+      redirect_to technology_path(@technology)
     end
   end
 

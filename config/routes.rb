@@ -18,7 +18,6 @@ Technophobia::Application.routes.draw do
   #   resources :products
 
   resources :technology do
-    resources :review
     resources :review_type do
       resources :numeric_review
       resources :text_review do
@@ -28,7 +27,6 @@ Technophobia::Application.routes.draw do
   end
 
   resources :home
-  resources :tech
   resources :search
 
   resources :technology_type do

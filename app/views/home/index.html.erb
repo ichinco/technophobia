@@ -7,7 +7,7 @@
     <div class="row-fluid">
         <div class="span8 offset2 text-center">
             <% @types.each do |type| %>
-                <%= link_to type.name, tech_index_path(:technology_type_id => type.id),
+                <%= link_to type.name, technology_index_path(:technology_type_id => type.id),
                             :class=>"btn btn-primary" %>
             <% end %>
         </div>

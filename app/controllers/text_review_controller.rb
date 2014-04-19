@@ -19,7 +19,7 @@ class TextReviewController < ApplicationController
     @text_review.user = current_user
 
     if @text_review.save
-      redirect_to tech_path(@technology)
+      redirect_to technology_path(@technology)
     else
       render 'new'
     end

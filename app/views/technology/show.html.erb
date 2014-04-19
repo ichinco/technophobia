@@ -3,7 +3,7 @@
   <li><a href="/">Home</a> <span class="divider">/</span></li>
   <li>
       <%= link_to @technology.technology_type.name,
-          tech_index_path(:technology_type_id => @technology.technology_type.id) %>
+          technology_index_path(:technology_type_id => @technology.technology_type.id) %>
       <span class="divider">/</span>
   </li>
   <li class="active"><%= @technology.name %></li>
@@ -31,7 +31,7 @@
     <div>
         <% cache ['alternatives', @technology, @alternatives] do %>
         <% @alternatives.each do |alternative| %>
-            <%= link_to alternative.name, tech_url(alternative) %>
+            <%= link_to alternative.name, technology_url(alternative) %>
         <% end %>
         <% end %>
     </div>
