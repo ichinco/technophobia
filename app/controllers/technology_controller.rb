@@ -35,7 +35,7 @@ class TechnologyController < ApplicationController
         v.save()
       end
 
-      redirect_to technology_url(@technology)
+      redirect_to technology_path(@technology)
     else
       render 'new'
     end

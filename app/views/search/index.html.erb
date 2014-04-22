@@ -9,7 +9,7 @@
     <ul class="unstyled">
         <% @technologies.each do |technology| %>
             <li class="row-fluid">
-                <h2><%= link_to technology[:name], technology_url(technology), class: "span12" %></h2>
+                <h2><%= link_to technology[:name], technology_path(technology), class: "span12" %></h2>
             </li>
         <% end %>
     </ul>

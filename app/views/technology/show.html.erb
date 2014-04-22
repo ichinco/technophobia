@@ -56,7 +56,7 @@
             <div>
                 <% cache ['alternatives', @technology, @alternatives] do %>
                     <% @alternatives.each do |alternative| %>
-                        <%= link_to alternative.name, technology_url(alternative) %>
+                        <%= link_to alternative.name, technology_path(alternative) %>
                     <% end %>
                 <% end %>
             </div>

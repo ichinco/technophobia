@@ -13,7 +13,7 @@
             <% @technologies.each do |technology| %>
                 <% cache ['technology-index', @technology_type, technology] do %>
                     <li class="row-fluid">
-                        <h2><%= link_to technology[:name], technology_url(technology), class: "span12" %></h2>
+                        <h2><%= link_to technology[:name], technology_path(technology), class: "span12" %></h2>
                     </li>
                 <% end %>
             <% end %>
