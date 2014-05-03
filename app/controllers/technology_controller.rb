@@ -1,7 +1,7 @@
 class TechnologyController < ApplicationController
   include TechnologyHelper
 
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, only: [:new, :create]
 
   def new
     @type_id = params[:technology_type_id]
