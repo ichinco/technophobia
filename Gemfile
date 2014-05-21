@@ -40,7 +40,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'flatstrap-sass', '~> 2.3.1.0'
+gem 'bootstrap-sass', '~> 3.1.1.1'
 gem 'font-awesome-sass'
 gem "select2-rails"
 gem "jquery-form-rails"

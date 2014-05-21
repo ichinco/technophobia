@@ -1,3 +1,6 @@
+
+
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -10,7 +13,15 @@
  *
  *= require select2
  *= require_self
- *= require_tree .
- *= require flatstrap/bootstrap
+ *= require app
+ *= require home
+ *= require meta_review
+ *= require numeric_review_controller
+ *= require review_type
+ *= require search
+ *= require technology
+ *= require technology_property
+ *= require technology_type
+ *= require text_review_controller
  *= require font-awesome
  */

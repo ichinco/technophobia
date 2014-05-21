@@ -1,3 +1,35 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$primary: #9CBCBF;
+$secondary:#522F2F;
+$tertiary: #E41D2A;
+
+$text-color: $secondary;
+$link-color: $secondary;
+
+$navbar-margin-bottom: 0px;
+$navbar-default-bg: #FFFFFF;
+$navbar-default-link-color: #FFFFFF;
+$breadcrumb-bg: #FFFFFF;
+
+$btn-primary-bg: $primary;
+$btn-primary-color: #FFFFFF;
+
+$navbar-default-brand-color:$secondary;
+$breadcrumb-color:$secondary;
+
+@import "bootstrap";
+
+.heap {
+  color: $secondary;
+}
+
+.sheep {
+  color: $tertiary;
+}
+
+a.brand {
+  text-decoration: none;
+}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Technophobia</title>
+  <title><%= @title || "HeapSheep" %></title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="eYkyMtzfkxwEjI5lOidCjbV_YbEAaVBAWuB1Tt_7uxE" />
@@ -23,38 +23,41 @@
 </head>
 <body>
 
-    <div class="navbar navbar-static-top">
-        <!--navbar-fixed-top-->
-        <div class="navbar-inner">
-            <div class="container-fluid">
+    <nav class="navbar navbar-static-top navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
 
-                <a class="brand" href="/">heapsheep</a>
+                <a class="brand" href="/"><span class="heap">heap</span><span class="sheep">sheep</span></a>
+            </div>
 
-                <ul class="nav pull-right">
+            <div class="collapse navbar-collapse">
+
+                <ul class="nav navbar-nav pull-right">
                     <li>
-                        <form class="navbar-search" action="/search">
-                            <input type="text" name="search_term" placeholder="search" class="search-query"></textfield>
+                        <form class="navbar-form" action="/search" role="search">
+                            <input type="text" name="search_term" placeholder="search" class="search-query form-control"></input>
                             <button type="submit" class="hide"></button>
                         </form>
                         <% form_for :search, url: search_index_path,
                                     html: {class: "navbar-search"}, method: "GET" do |f| %>
-                            <%= f.text_field :search_term, placeholder: "search", class:"search-query"%>
+                            <div class="form-group">
+                                <%= f.text_field :search_term, placeholder: "search", class:"search-query"%>
+                            </div>
                             <%= f.submit "search", :class=>"hide" %>
                         <% end %>
                     </li>
                     <% if user_signed_in? %>
-                        <li><%= link_to 'Settings', edit_user_registration_path%></li>
-                        <li class="divider-vertical"></li>
-                        <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+                        <li><%= link_to 'Settings', edit_user_registration_path, class: "btn btn-primary btn-sm"%></li>
+                        <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "btn btn-primary btn-sm" %></li>
                     <% else %>
-                        <li><%= link_to 'Sign in', new_user_session_path %></li>
-                        <li class="divider-vertical"></li>
-                        <li><%= link_to 'Sign up', new_user_registration_path %></li>
+                        <li><%= link_to 'Sign in', new_user_session_path, class: "btn btn-primary btn-sm" %></li>
+                        <li><%= link_to 'Sign up', new_user_registration_path, class: "btn btn-primary btn-sm" %></li>
                     <% end %>
                 </ul>
             </div>
+
         </div>
-    </div>
+    </nav>
     <% if alert %>
         <div class="alert alert-error">
             <button type="button" class="close" data-dismiss="alert">×</button>

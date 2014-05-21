@@ -17,6 +17,5 @@
 //= require bootstrap
 //= require select2
 //= require jquery.form
-
 //= require_tree .
 

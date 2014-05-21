@@ -6,17 +6,17 @@
         <%= button_tag(type: 'submit', class:"iconless-button") do %>
             <% if r <= rating %>
                 <div class="hidden empty-star no-star <%=review_strength_class%>" >
-                    <i class="icon-star-empty"></i>
+                    <span class="glyphicon glyphicon-star-empty"></span>
                 </div>
                 <div class="full-star star <%=review_strength_class%>" >
-                    <i class="icon-star"></i>
+                    <span class="glyphicon glyphicon-star"></span>
                 </div>
             <% else %>
                 <div class="hidden full-star no-star <%=review_strength_class%>" >
-                    <i class="icon-star"></i>
+                    <span class="glyphicon glyphicon-star"></span>
                 </div>
                 <div class="empty-star star <%=review_strength_class%>">
-                    <i class="icon-star-empty"></i>
+                    <span class="glyphicon glyphicon-star-empty"></span>
                 </div>
             <%end%>
         <% end %>

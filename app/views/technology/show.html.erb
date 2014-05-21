@@ -1,12 +1,13 @@
-<ul class="breadcrumb">
-    <li><a href="/">Home</a> <span class="divider">/</span></li>
+<% @title = "HeapSheep: " + @technology.name %>
+
+<ol class="breadcrumb">
+    <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
     <li>
         <%= link_to @technology.technology_type.name,
                     technology_index_path(:technology_type_id => @technology.technology_type.id) %>
-        <span class="divider">/</span>
     </li>
     <li class="active"><%= @technology.name %></li>
-</ul>
+</ol>
 
 
 <div class="container-fluid">
