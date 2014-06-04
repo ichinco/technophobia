@@ -30,6 +30,10 @@ $breadcrumb-color:$secondary;
   color: $tertiary;
 }
 
-a.brand {
-  text-decoration: none;
+.navbar-nav > li > a.btn-sm {
+  margin-top:10px;
+  margin-bottom: 15px;
+  margin-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }

@@ -27,7 +27,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
 
-                <a class="brand" href="/"><span class="heap">heap</span><span class="sheep">sheep</span></a>
+                <a class="navbar-brand" href="#"><span class="heap">heap</span><span class="sheep">sheep</span></a>
             </div>
 
             <div class="collapse navbar-collapse">
@@ -35,7 +35,7 @@
                 <ul class="nav navbar-nav pull-right">
                     <li>
                         <form class="navbar-form" action="/search" role="search">
-                            <input type="text" name="search_term" placeholder="search" class="search-query form-control"></input>
+                            <input type="text" name="search_term" placeholder="search" class="search-query form-control" />
                             <button type="submit" class="hide"></button>
                         </form>
                         <% form_for :search, url: search_index_path,

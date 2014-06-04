@@ -692,7 +692,7 @@ TechnologyProperty.create(display_name:"concurrency support", property_type:"tex
 TechnologyProperty.create(display_name:"supports pass by reference", property_type:"boolean", technology_type_id:@language.id)
 TechnologyProperty.create(display_name:"supports pass by value", property_type:"boolean", technology_type_id:@language.id)
 
-@framework = TechnologyType.create(name:"Web Framework")
+@framework = TechnologyType.create(name:"Web Framework", subdomain:@language.id)
 @license = TechnologyType.create(name:"License")
 TechnologyTechnologyProperty.create(display_name:"Language", technology_type_id:@framework.id, value_type_id:@language.id)
 TechnologyTechnologyProperty.create(display_name:"License", technology_type_id:@framework.id, value_type_id:@license.id)
