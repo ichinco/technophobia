@@ -1,6 +1,6 @@
 <% @title = "HeapSheep: " + @technology_type.name %>
 
-<ol class="breadcrumb">
+<ol class="breadcrumb affix">
   <li><a href="/"><span class="glyphicon glyphicon-home" ></span> Home</a></li>
   <li class="active"><%= @technology_type.name %></li>
 </ol>
@@ -22,6 +22,7 @@
     </div>
 
     <div class="col-md-9">
+        <h1 class="main-title">Find out what people think of:</h1>
 
         <% ordered_keys.each do |subdomain| %>
             <% values = @grouped_tech[subdomain] %>
@@ -38,9 +39,10 @@
                         <% end %>
                     <% end %>
                 <% end %>
+                <li><%= link_to "add new", new_technology_path(:technology_type_id => @technology_type.id), class: "btn btn-primary btn-sm" %></li>
             </ul>
         <% end %>
     </div>
 
-    <p>Something missing? <%= link_to "add new", new_technology_path(:technology_type_id => @technology_type.id), class: "btn" %></p>
+
 </div>
