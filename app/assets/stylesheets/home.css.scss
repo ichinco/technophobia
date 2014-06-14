@@ -37,3 +37,11 @@ $breadcrumb-color:$secondary;
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
+ul.unstyled > li {
+  list-style-type: none;
+}
+
+.sidebar a {
+  color: $tertiary;
+}

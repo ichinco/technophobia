@@ -66,8 +66,11 @@ class TechnologyController < ApplicationController
   def index
     @technology_type_id = params[:technology_type_id]
     @technology_type = TechnologyType.find(@technology_type_id)
-    @technologies = Technology.where(:technology_type_id => @technology_type.id).order(name: :asc)
-    #@technologies = Technology.all
+    @key_values = TechnologyTechnologyValue.joins(:technology).where(
+        :technology_technology_property_id => @technology_type.subdomain_id,
+        technologies: {:technology_type_id => @technology_type_id })
+
+    @grouped_tech = @key_values.group_by(&:value)
   end
 
   private

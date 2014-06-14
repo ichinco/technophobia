@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140419205216) do
+ActiveRecord::Schema.define(version: 20140604015932) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -137,7 +137,10 @@ ActiveRecord::Schema.define(version: 20140419205216) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "subdomain_id"
   end
+
+  add_index "technology_types", ["subdomain_id"], name: "index_technology_types_on_subdomain_id"
 
   create_table "text_reviews", force: true do |t|
     t.integer  "user_id"

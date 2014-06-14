@@ -7,19 +7,40 @@
 
 
 <div class="container-fluid">
-
-    <h1>Find out what people think of:</h1>
-    <ul class="unstyled">
-        <% cache ['technology-index', @technology_type, @technologies] do %>
-            <% @technologies.each do |technology| %>
-                <% cache ['technology-index', @technology_type, technology] do %>
-                    <li class="row-fluid">
-                        <h2><%= link_to technology[:name], technology_path(technology), class: "span12" %></h2>
+    <% ordered_keys = @grouped_tech.keys.sort_by!{|a| a.nil? ? "zz" : a.name} %>
+    <div class="col-md-3">
+        <div class="affix">
+            <ul class="sidebar unstyled">
+                <% ordered_keys.each do |subdomain| %>
+                    <% name = subdomain.nil? ? "Other" : subdomain.name  %>
+                    <li>
+                        <a href="#<%= name %>"><%= name %></a>
                     </li>
                 <% end %>
-            <% end %>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+
+        <% ordered_keys.each do |subdomain| %>
+            <% values = @grouped_tech[subdomain] %>
+            <% name = subdomain.nil? ? "Other" : subdomain.name %>
+            <h2 id="<%= name %>" class="subdomain"><%= name %></h2>
+            <ul class="unstyled">
+                <% cache ['technology-index', @technology_type, values] do %>
+                    <% values.each do |value| %>
+                        <% technology = value.technology %>
+                        <% cache ['technology-index', @technology_type, technology] do %>
+                            <li class="row-fluid">
+                                <h3><%= link_to technology[:name], technology_path(technology), class: "span12" %></h3>
+                            </li>
+                        <% end %>
+                    <% end %>
+                <% end %>
+            </ul>
         <% end %>
-    </ul>
+    </div>
 
     <p>Something missing? <%= link_to "add new", new_technology_path(:technology_type_id => @technology_type.id), class: "btn" %></p>
 </div>

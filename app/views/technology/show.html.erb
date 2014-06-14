@@ -14,7 +14,7 @@
 
     <div class="row-fluid">
 
-        <div class="span9">
+        <div class="col-md-9">
             <h1><%= @technology[:name] %></h1>
             <dl class="dl-horizontal">
                 <% cache ['numeric-reviews', @technology, @technology.numeric_reviews] do %>
@@ -51,7 +51,7 @@
                 <% end %>
             </div>
         </div>
-        <div class="span3">
+        <div class="col-md-3">
             <h4>Alternatives</h4>
 
             <div>
