@@ -1,3 +1,14 @@
+<% @title = "HeapSheep: Review " + @technology.name %>
+
+<ol class="breadcrumb affix">
+    <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+    <li>
+        <%= link_to @technology.technology_type.name,
+                    technology_index_path(:technology_type_id => @technology.technology_type.id) %>
+    </li>
+    <li class="active"><%= @technology.name %></li>
+</ol>
+
 <div class="container-fluid">
     <h1><%= @review_type.display_name %></h1>
 
