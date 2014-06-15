@@ -22,12 +22,16 @@
     </div>
 
     <div class="col-md-9">
-        <h1 class="main-title">Find out what people think of:</h1>
+        <h1 class="main-title">Find out what people think of these <%= @technology_type.name.pluralize(@key_values.count).downcase %>:</h1>
 
         <% ordered_keys.each do |subdomain| %>
             <% values = @grouped_tech[subdomain] %>
             <% name = subdomain.nil? ? "Other" : subdomain.name %>
-            <h2 id="<%= name %>" class="subdomain"><%= name %></h2>
+            <h2>
+                <span id="<%= name %>" class="anchor">&nbsp;</span>
+                <%= name %>
+            </h2>
+
             <ul class="unstyled">
                 <% cache ['technology-index', @technology_type, values] do %>
                     <% values.each do |value| %>

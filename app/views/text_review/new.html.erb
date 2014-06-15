@@ -3,13 +3,13 @@
 
     <%= form_for :review, url: technology_review_type_text_review_index_path(@technology.id, @review_type.id) do |f| %>
 
-        <fieldset class="row-fluid">
-            <%= f.text_area :review, :rows=>4, :class=>"span12" %>
-        </fieldset>
+        <div class="form-group">
+            <%= f.text_area :review, :rows=>4, :class=>"span12 form-control" %>
+        </div>
 
-        <fieldset class="row-fluid">
+        <div class="form-group">
             <%= f.submit "submit", :class=>"btn" %>
 
-        </fieldset>
+        </div>
     <% end %>
 </div>

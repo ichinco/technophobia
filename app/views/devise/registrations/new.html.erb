@@ -4,29 +4,29 @@
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
 
-      <fieldset class="tech">
+      <div class="tech field-group">
           <%= f.label :email %>
-          <%= f.email_field :email, :autofocus => true %>
-      </fieldset>
+          <%= f.email_field :email, :autofocus => true, class: "form-control" %>
+      </div>
 
-        <fieldset class="tech">
+        <div class="tech field-group">
             <%= f.label :username %>
-            <%= f.text_field :username %>
-        </fieldset>
+            <%= f.text_field :username, class: "form-control" %>
+        </div>
 
-      <fieldset class="tech">
+      <div class="tech field-group">
           <%= f.label :password %>
-          <%= f.password_field :password %>
-      </fieldset>
+          <%= f.password_field :password, class: "form-control" %>
+      </div>
 
-      <fieldset class="tech">
+      <div class="tech field-group">
           <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation %>
-      </fieldset>
+          <%= f.password_field :password_confirmation, class: "form-control" %>
+      </div>
 
-      <fieldset class="tech">
+      <div class="tech field-group">
           <%= f.submit "Sign up", :class=>"btn" %>
-      </fieldset>
+      </div>
     <% end %>
 
     <%= render "devise/shared/links" %>

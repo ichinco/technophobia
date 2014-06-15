@@ -12,6 +12,8 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'compass'
+
 gem 'sprockets_better_errors'
 
 # Use SCSS for stylesheets

@@ -24,39 +24,33 @@
 <body>
 
     <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
+        <div class="navbar-header">
 
-                <a class="navbar-brand" href="#"><span class="heap">heap</span><span class="sheep">sheep</span></a>
-            </div>
-
-            <div class="collapse navbar-collapse">
-
-                <ul class="nav navbar-nav pull-right">
-                    <li>
-                        <form class="navbar-form" action="/search" role="search">
-                            <input type="text" name="search_term" placeholder="search" class="search-query form-control" />
-                            <button type="submit" class="hide"></button>
-                        </form>
-                        <% form_for :search, url: search_index_path,
-                                    html: {class: "navbar-search"}, method: "GET" do |f| %>
-                            <div class="form-group">
-                                <%= f.text_field :search_term, placeholder: "search", class:"search-query"%>
-                            </div>
-                            <%= f.submit "search", :class=>"hide" %>
-                        <% end %>
-                    </li>
-                    <% if user_signed_in? %>
-                        <li><%= link_to 'Settings', edit_user_registration_path, class: "btn btn-primary btn-sm"%></li>
-                        <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "btn btn-primary btn-sm" %></li>
-                    <% else %>
-                        <li><%= link_to 'Sign in', new_user_session_path, class: "btn btn-primary btn-sm" %></li>
-                        <li><%= link_to 'Sign up', new_user_registration_path, class: "btn btn-primary btn-sm" %></li>
-                    <% end %>
-                </ul>
-            </div>
-
+            <a class="navbar-brand" href="/">
+                <div class="logo"></div>
+                <span class="heap">heap</span><span class="sheep">sheep</span>
+            </a>
         </div>
+
+        <div class="collapse navbar-collapse">
+
+            <ul class="nav navbar-nav pull-right">
+                <li>
+                    <form class="form-inline" action="/search" role="search">
+                        <input type="text" name="search_term" placeholder="search" class="search-query form-control" />
+                        <button type="submit" class="hide"></button>
+                    </form>
+                </li>
+                <% if user_signed_in? %>
+                    <li><%= button_to 'Settings', edit_user_registration_path, :method => :get, class: "btn btn-primary btn-sm"%></li>
+                    <li><%= button_to 'Sign out', destroy_user_session_path, :method => :delete, class: "btn btn-primary btn-sm" %></li>
+                <% else %>
+                    <li><%= button_to 'Sign in', new_user_session_path, :method => :get, class: "btn btn-primary btn-sm" %></li>
+                    <li><%= button_to 'Sign up', new_user_registration_path, :method => :get, class: "btn btn-primary btn-sm" %></li>
+                <% end %>
+            </ul>
+        </div>
+
     </nav>
     <% if alert %>
         <div class="alert alert-error">

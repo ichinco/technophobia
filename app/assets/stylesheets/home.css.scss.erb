@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//= depend_on_asset "heapsheep.JPG"
+
 $primary: #9CBCBF;
 $secondary:#522F2F;
 $tertiary: #E41D2A;
@@ -30,12 +32,12 @@ $breadcrumb-color:$secondary;
   color: $tertiary;
 }
 
-.navbar-nav > li > a.btn-sm {
-  margin-top:10px;
-  margin-bottom: 15px;
-  margin-left: 5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+.navbar-nav button,
+.navbar-nav input {
+  margin-top:7px;
+  margin-right: 10px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 ul.unstyled > li {
@@ -47,7 +49,7 @@ ul.unstyled > li {
 }
 
 .sidebar {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .main-title {
@@ -55,4 +57,25 @@ ul.unstyled > li {
 }
 
 body { padding-top: 50px; }
-.container-fluid {padding-top: 20px;}
+.container-fluid {padding-top: 40px;}
+
+.anchor {
+  margin-top: -60px;
+  padding-top: 60px;
+}
+
+.breadcrumb {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+  z-index: 1;
+}
+
+.logo {
+  display: inline-block;
+  background: url('<%= asset_path 'heapsheep.JPG' %>') no-repeat;
+  background-size: 100%;
+  width: 50px;
+  height: 35px;
+  margin-top: -10px;
+}
