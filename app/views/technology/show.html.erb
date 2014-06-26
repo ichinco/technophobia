@@ -32,21 +32,21 @@
             <div>
                 <% cache ['text_reviews', @technology, @technology.text_reviews] do %>
                     <h2>In General</h2>
-                    <%= link_to 'add', new_technology_review_type_text_review_path(@technology.id, 8) %>
+                    <%= link_to 'add', new_technology_review_type_text_review_path(@technology.id, 8), :class=> "btn btn-primary" %>
 
                     <%= render partial: "text_review", locals: {text_reviews: @technology.text_reviews, review_type_id: 8, technology_id: @technology.id} %>
 
 
                     <h2>What makes it unique?</h2>
-                    <%= link_to 'add', new_technology_review_type_text_review_path(@technology.id, 5) %>
+                    <%= link_to 'add', new_technology_review_type_text_review_path(@technology.id, 5), :class=> "btn btn-primary" %>
                     <%= render partial: "text_review", locals: {text_reviews: @technology.text_reviews, review_type_id: 5, technology_id: @technology.id} %>
 
                     <h2>What is it good at?</h2>
-                    <%= link_to 'add', new_technology_review_type_text_review_path(@technology.id, 6) %>
+                    <%= link_to 'add', new_technology_review_type_text_review_path(@technology.id, 6), :class=> "btn btn-primary" %>
                     <%= render partial: "text_review", locals: {text_reviews: @technology.text_reviews, review_type_id: 6, technology_id: @technology.id} %>
 
                     <h2>What is it bad at?</h2>
-                    <%= link_to 'add', new_technology_review_type_text_review_path(@technology.id, 7) %>
+                    <%= link_to 'add', new_technology_review_type_text_review_path(@technology.id, 7), :class=> "btn btn-primary" %>
                     <%= render partial: "text_review", locals: {text_reviews: @technology.text_reviews, review_type_id: 7, technology_id: @technology.id} %>
                 <% end %>
             </div>
