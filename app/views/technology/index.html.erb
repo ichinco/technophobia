@@ -9,7 +9,7 @@
 <div class="container-fluid">
     <% ordered_keys = @grouped_tech.keys.sort_by!{|a| a.nil? ? "zz" : a.name} %>
     <div class="col-md-3">
-        <div class="affix">
+        <div class="affix sidebar-affix well">
             <ul class="sidebar unstyled">
                 <% ordered_keys.each do |subdomain| %>
                     <% name = subdomain.nil? ? "Other" : subdomain.name  %>
@@ -38,7 +38,7 @@
                         <% technology = value.technology %>
                         <% cache ['technology-index', @technology_type, technology] do %>
                             <li class="row-fluid">
-                                <h3><%= link_to technology[:name], technology_path(technology), class: "span12" %></h3>
+                                <h3 class="tech"><%= link_to technology[:name], technology_path(technology), class: "span12" %></h3>
                             </li>
                         <% end %>
                     <% end %>

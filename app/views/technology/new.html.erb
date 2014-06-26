@@ -4,7 +4,7 @@
   <li class="active"><%= @type.name %></li>
 </ol>
 
-<div class="container-fluid">
+<div class="container-fluid form-container">
     <h1>Add a <%= @type.name %></h1>
     <div class="lead">
     Tell us about a new technology!
@@ -52,7 +52,7 @@
         <% end %>
 
         <div class="tech form-group">
-            <%= f.submit "submit", :class=>"btn" %>
+            <%= f.submit "submit", :class=>"btn btn-primary" %>
         </div>
 
     <% end %>

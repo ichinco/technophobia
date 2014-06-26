@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid form-container">
     <h2>Resend unlock instructions</h2>
 
     <%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
@@ -10,7 +10,7 @@
         </div>
 
         <fieldset class="tech">
-            <%= f.submit "Resend unlock instructions", :class=>"btn" %>
+            <%= f.submit "Resend unlock instructions", :class=>"btn btn-primary" %>
         </fieldset>
     <% end %>
 

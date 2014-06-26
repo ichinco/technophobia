@@ -9,7 +9,7 @@
     <li class="active"><%= @technology.name %></li>
 </ol>
 
-<div class="container-fluid">
+<div class="container-fluid form-container">
     <h1><%= @review_type.display_name %></h1>
 
     <%= form_for :review, url: technology_review_type_text_review_index_path(@technology.id, @review_type.id) do |f| %>
@@ -19,7 +19,7 @@
         </div>
 
         <div class="form-group">
-            <%= f.submit "submit", :class=>"btn" %>
+            <%= f.submit "submit", :class=>"btn btn-primary" %>
 
         </div>
     <% end %>

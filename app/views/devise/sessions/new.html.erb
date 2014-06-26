@@ -1,5 +1,5 @@
 
-<div class="container-fluid">
+<div class="container-fluid form-container">
     <h2>Sign in</h2>
 
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
@@ -22,7 +22,7 @@
       <% end -%>
 
       <div class="tech field-group">
-          <%= f.submit "Sign in", :class => "btn" %>
+          <%= f.submit "Sign in", :class => "btn btn-primary" %>
       </div>
     <% end %>
 

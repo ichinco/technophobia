@@ -26,10 +26,12 @@ $breadcrumb-color:$secondary;
 
 .heap {
   color: $secondary;
+  vertical-align: top;
 }
 
 .sheep {
   color: $tertiary;
+  vertical-align: top;
 }
 
 .navbar-nav button,
@@ -49,7 +51,17 @@ ul.unstyled > li {
 }
 
 .sidebar {
-  margin-top: 30px;
+  margin-top: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.sidebar-affix {
+    height:100%;
+}
+
+.sidebar.unstyled {
+    padding-left:0px;
 }
 
 .main-title {
@@ -80,14 +92,27 @@ body { padding-top: 50px; }
   margin-top: -10px;
 }
 
+h3.tech {
+    font-size: 20px;
+}
+
+.form-container {
+    width:80%;
+    margin: 0px auto;
+}
+
 @media(max-width:1000px){
-   .affix {
-     position: static;
-     width: auto;
-     top: 0;
+   .affix.breadcrumb {
+        position: static;
+        width: auto;
+        top: 0;
     }
 
-    .sidebar {
-        display: none;
-    }
+   .sidebar-affix.well {
+        display:none;
+   }
+
+   .form-container {
+       width:100%;
+   }
 }
