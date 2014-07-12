@@ -38,7 +38,17 @@
                         <% technology = value.technology %>
                         <% cache ['technology-index', @technology_type, technology] do %>
                             <li class="row-fluid">
-                                <h3 class="tech"><%= link_to technology[:name], technology_path(technology), class: "span12" %></h3>
+                                    <div class="tech">
+                                        <% cache ['numeric-reviews', technology, technology.numeric_reviews] do %>
+                                            <% rating_summary = construct_tech_overview(technology) %>
+                                            <% if rating_summary.overall_count > 0 %>
+                                                <%= render partial: "stars", locals: {rating: rating_summary.overall, count: rating_summary.overall_count, cap: 5, technology_id: technology.id, review_type_id: 1} %>
+                                                (<%= rating_summary.overall_count %> <%= "review".pluralize(rating_summary.overall_count) %>)
+                                            <% end %>
+                                        <% end %>
+
+                                        <%= link_to technology[:name], technology_path(technology), class: "span12 tech-link" %>
+                                    </div>
                             </li>
                         <% end %>
                     <% end %>
