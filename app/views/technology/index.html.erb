@@ -43,7 +43,7 @@
                                             <% rating_summary = construct_tech_overview(technology) %>
                                             <% if rating_summary.overall_count > 0 %>
                                                 <%= render partial: "stars", locals: {rating: rating_summary.overall, count: rating_summary.overall_count, cap: 5, technology_id: technology.id, review_type_id: 1} %>
-                                                (<%= rating_summary.overall_count %> <%= "review".pluralize(rating_summary.overall_count) %>)
+                                                (<%= rating_summary.overall_count %> <%= "rating".pluralize(rating_summary.overall_count) %>)
                                             <% end %>
                                         <% end %>
 
