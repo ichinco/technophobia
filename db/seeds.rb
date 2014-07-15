@@ -1453,5 +1453,5 @@ TechnologyTechnologyValue.create(technology_technology_property:@licenseproperty
 #TechnologyTechnologyValue.create(technology:@opa,value:@mit_license,technology_technology_property:@language)
 @zotonic=Technology.create(technology_type_id:2,name:'Zotonic')
 TechnologyTechnologyValue.create(technology:@zotonic,value:@erlang,technology_technology_property:@language)
-TechnologyTechnologyValue.create(technology_technology_property:@licenseproperty,technology:@zotonic,value:@apache_license,technology_technology_property:@license)
+TechnologyTechnologyValue.create(technology_technology_property:@licenseproperty,technology:@zotonic,value:@apache_license)
 
