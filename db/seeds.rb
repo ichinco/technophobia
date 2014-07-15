@@ -1455,3 +1455,5 @@ TechnologyTechnologyValue.create(technology_technology_property:@licenseproperty
 TechnologyTechnologyValue.create(technology:@zotonic,value:@erlang,technology_technology_property:@language)
 TechnologyTechnologyValue.create(technology_technology_property:@licenseproperty,technology:@zotonic,value:@apache_license)
 
+
+
