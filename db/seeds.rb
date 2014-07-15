@@ -692,10 +692,13 @@ TechnologyProperty.create(display_name:"concurrency support", property_type:"tex
 TechnologyProperty.create(display_name:"supports pass by reference", property_type:"boolean", technology_type_id:@language.id)
 TechnologyProperty.create(display_name:"supports pass by value", property_type:"boolean", technology_type_id:@language.id)
 
-@framework = TechnologyType.create(name:"Web Framework", subdomain:@language.id)
+@framework = TechnologyType.create(name:"Web Framework")
 @license = TechnologyType.create(name:"License")
-TechnologyTechnologyProperty.create(display_name:"Language", technology_type_id:@framework.id, value_type_id:@language.id)
+@language_prop=TechnologyTechnologyProperty.create(display_name:"Language", technology_type_id:@framework.id, value_type_id:@language.id)
 TechnologyTechnologyProperty.create(display_name:"License", technology_type_id:@framework.id, value_type_id:@license.id)
+@framework.subdomain=@language_prop
+@framework.save
+
 #TechnologyProperty.create(display_name:"ORM", property_type:"technology", technology_type_id:@framework.id)
 TechnologyProperty.create(display_name:"Paradigm", property_type:"text", technology_type_id:@framework.id)
 #TechnologyProperty.create(display_name:"Internationalization", property_type:"boolean", technology_type_id:@framework.id)
