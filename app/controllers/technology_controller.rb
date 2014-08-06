@@ -1,5 +1,6 @@
 class TechnologyController < ApplicationController
   include TechnologyHelper
+  include StackExchangeHelper
 
   before_filter :authenticate_user!, only: [:new, :create]
 
@@ -61,6 +62,10 @@ class TechnologyController < ApplicationController
     @technology.technology_technology_values.each{|value|
       @technology_property_value_hash[value.technology_technology_property].push(value.value)
     }
+
+    @tags = @technology.stack_exchange_tags.collect{ |tag| tag.tag }
+
+    @stack_exchange_answers = get_all_questions_with_tag(1.month.ago, @tags)
   end
 
   def index

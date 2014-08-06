@@ -696,7 +696,7 @@ TechnologyProperty.create(display_name:"supports pass by value", property_type:"
 @license = TechnologyType.create(name:"License")
 @language_prop=TechnologyTechnologyProperty.create(display_name:"Language", technology_type_id:@framework.id, value_type_id:@language.id)
 TechnologyTechnologyProperty.create(display_name:"License", technology_type_id:@framework.id, value_type_id:@license.id)
-@framework.subdomain=@language_prop
+@framework.subdomain_id=@language_prop.id
 @framework.save
 
 #TechnologyProperty.create(display_name:"ORM", property_type:"technology", technology_type_id:@framework.id)
@@ -1455,5 +1455,8 @@ TechnologyTechnologyValue.create(technology_technology_property:@licenseproperty
 TechnologyTechnologyValue.create(technology:@zotonic,value:@erlang,technology_technology_property:@language)
 TechnologyTechnologyValue.create(technology_technology_property:@licenseproperty,technology:@zotonic,value:@apache_license)
 
+Technology.all.each do |technology|
+  StackExchangeTag.create(technology:technology, tag: technology.name.gsub(' ', '-'))
+end
 
 

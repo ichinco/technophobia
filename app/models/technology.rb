@@ -6,6 +6,7 @@ class Technology < ActiveRecord::Base
   has_many :numeric_reviews
   has_many :technology_property_values, :dependent => :destroy
   has_many :technology_technology_values, :dependent => :destroy
+  has_many :stack_exchange_tags, :dependent => :destroy
 
   validates :name, :presence => true
   validates :name, length: {in: 3 .. 50}

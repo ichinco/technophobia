@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140604015932) do
+ActiveRecord::Schema.define(version: 20140806001806) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -78,6 +78,15 @@ ActiveRecord::Schema.define(version: 20140604015932) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "stack_exchange_tags", force: true do |t|
+    t.integer  "technology_id"
+    t.string   "tag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stack_exchange_tags", ["technology_id"], name: "index_stack_exchange_tags_on_technology_id"
 
   create_table "technologies", force: true do |t|
     t.integer  "technology_type_id"
