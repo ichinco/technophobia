@@ -9,7 +9,7 @@ class Technology < ActiveRecord::Base
   has_many :stack_exchange_tags, :dependent => :destroy
 
   validates :name, :presence => true
-  validates :name, length: {in: 3 .. 50}
+  validates :name, length: {in: 1 .. 50}
 
   accepts_nested_attributes_for :technology_property_values
   accepts_nested_attributes_for :technology_technology_values

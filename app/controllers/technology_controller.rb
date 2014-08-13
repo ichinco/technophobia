@@ -38,7 +38,7 @@ class TechnologyController < ApplicationController
 
       redirect_to technology_path(@technology)
     else
-      render 'new'
+      redirect_to new_technology_path(technology_type_id: @technology.technology_type_id)
     end
   end
 
