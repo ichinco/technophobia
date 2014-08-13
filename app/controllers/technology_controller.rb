@@ -36,6 +36,11 @@ class TechnologyController < ApplicationController
         v.save()
       end
 
+      stack_exchange_tag = StackExchangeTag.create()
+      stack_exchange_tag.technology_id = @technology.id
+      stack_exchange_tag.tag=@technology.name
+      stack_exchange_tag.save
+
       redirect_to technology_path(@technology)
     else
       redirect_to new_technology_path(technology_type_id: @technology.technology_type_id)
