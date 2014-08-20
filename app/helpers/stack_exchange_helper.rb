@@ -15,10 +15,12 @@ module StackExchangeHelper
         backoff = questions['backoff']
         page += 1
 
-        questions['items'].each do |item|
-          total +=1
-          if item['answer_count'] > 0
-            answered += 1
+        if questions.has_key?('items')
+          questions['items'].each do |item|
+            total +=1
+            if item['answer_count'] > 0
+              answered += 1
+            end
           end
         end
 
