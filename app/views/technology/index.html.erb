@@ -33,25 +33,21 @@
             </h2>
 
             <ul class="unstyled">
-                <% cache ['technology-index', @technology_type, values] do %>
-                    <% values.each do |value| %>
-                        <% technology = value.technology %>
-                        <% cache ['technology-index', @technology_type, technology] do %>
-                            <li class="row-fluid">
-                                    <div class="tech">
-                                        <% cache ['numeric-reviews', technology, technology.numeric_reviews] do %>
-                                            <% rating_summary = construct_tech_overview(technology) %>
-                                            <% if rating_summary.overall_count > 0 %>
-                                                <%= render partial: "stars", locals: {rating: rating_summary.overall, count: rating_summary.overall_count, cap: 5, technology_id: technology.id, review_type_id: 1} %>
-                                                (<%= rating_summary.overall_count %> <%= "rating".pluralize(rating_summary.overall_count) %>)
-                                            <% end %>
-                                        <% end %>
+                <% values.each do |value| %>
+                    <% technology = value.technology %>
+                    <li class="row-fluid">
+                            <div class="tech">
+                                <% cache ['numeric-reviews', technology, technology.numeric_reviews] do %>
+                                    <% rating_summary = construct_tech_overview(technology) %>
+                                    <% if rating_summary.overall_count > 0 %>
+                                        <%= render partial: "stars", locals: {rating: rating_summary.overall, count: rating_summary.overall_count, cap: 5, technology_id: technology.id, review_type_id: 1} %>
+                                        (<%= rating_summary.overall_count %> <%= "rating".pluralize(rating_summary.overall_count) %>)
+                                    <% end %>
+                                <% end %>
 
-                                        <%= link_to technology[:name], technology_path(technology), class: "span12 tech-link" %>
-                                    </div>
-                            </li>
-                        <% end %>
-                    <% end %>
+                                <%= link_to technology[:name], technology_path(technology), class: "span12 tech-link" %>
+                            </div>
+                    </li>
                 <% end %>
                 <li><%= link_to "add new", new_technology_path(:technology_type_id => @technology_type.id), class: "btn btn-primary btn-sm" %></li>
             </ul>
