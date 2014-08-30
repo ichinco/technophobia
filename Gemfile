@@ -68,3 +68,11 @@ gem 'dalli'
 gem 'sanitize'
 
 gem 'httparty'
+
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-bitbucket'
+gem 'omniauth-stackexchange'
